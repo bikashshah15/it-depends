@@ -1,0 +1,1220 @@
+{
+    "pip:aioesphomeapi": {
+        "45.7.0": {
+            "dependencies": {
+                "pip:aiohappyeyeballs": ">=2.6.2",
+                "pip:async-interrupt": ">=1.2.2",
+                "pip:chacha20poly1305-reuseable": ">=0.13.2",
+                "pip:cryptography": ">=48.0.0",
+                "pip:noiseprotocol": "<1.0,>=0.3.1",
+                "pip:protobuf": "<8,>=6",
+                "pip:tzdata": ">=2026.2",
+                "pip:tzlocal": "<6,>=5.3.1",
+                "pip:zeroconf": "<2.0,>=0.150.0"
+            },
+            "is_source_package": false,
+            "name": "aioesphomeapi",
+            "source": "pip",
+            "version": "45.7.0",
+            "vulnerabilities": []
+        }
+    },
+    "pip:aiohappyeyeballs": {
+        "2.6.2": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "aiohappyeyeballs",
+            "source": "pip",
+            "version": "2.6.2",
+            "vulnerabilities": [
+                "MAL-2025-6692 ()"
+            ]
+        }
+    },
+    "pip:ajsonrpc": {
+        "1.2.0": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "ajsonrpc",
+            "source": "pip",
+            "version": "1.2.0",
+            "vulnerabilities": []
+        }
+    },
+    "pip:argcomplete": {
+        "3.7.0": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "argcomplete",
+            "source": "pip",
+            "version": "3.7.0",
+            "vulnerabilities": []
+        }
+    },
+    "pip:async-interrupt": {
+        "1.2.2": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "async-interrupt",
+            "source": "pip",
+            "version": "1.2.2",
+            "vulnerabilities": []
+        }
+    },
+    "pip:bitstring": {
+        "3.1.6": {
+            "dependencies": {
+                "pip:bitarray": "<4.0,>=3.0.0",
+                "pip:tibs": "<0.6,>=0.5.6"
+            },
+            "is_source_package": false,
+            "name": "bitstring",
+            "source": "pip",
+            "version": "3.1.6",
+            "vulnerabilities": []
+        }
+    },
+    "pip:bleak": {
+        "2.1.1": {
+            "dependencies": {
+                "pip:pyobjc-core": ">=10.3",
+                "pip:pyobjc-framework-corebluetooth": ">=10.3",
+                "pip:pyobjc-framework-libdispatch": ">=10.3"
+            },
+            "is_source_package": false,
+            "name": "bleak",
+            "source": "pip",
+            "version": "2.1.1",
+            "vulnerabilities": []
+        }
+    },
+    "pip:bottle": {
+        "0.13.0": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "bottle",
+            "source": "pip",
+            "version": "0.13.0",
+            "vulnerabilities": []
+        }
+    },
+    "pip:brotli": {
+        "1.2.0": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "brotli",
+            "source": "pip",
+            "version": "1.2.0",
+            "vulnerabilities": []
+        }
+    },
+    "pip:certifi": {
+        "2023.5.7": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "certifi",
+            "source": "pip",
+            "version": "2023.5.7",
+            "vulnerabilities": [
+                "PYSEC-2023-135 (CVE-2023-37920, GHSA-xqr8-7jwr-rhp7)",
+                "ECHO-2c05-8db5-680f ()",
+                "ROOT-APP-PYPI-CVE-2024-39689 ()",
+                "GHSA-248v-346w-9cwc (CVE-2024-39689, PYSEC-2024-230)",
+                "PYSEC-2024-230 (CVE-2024-39689, GHSA-248v-346w-9cwc)",
+                "GHSA-xqr8-7jwr-rhp7 (CVE-2023-37920, PYSEC-2023-135)"
+            ]
+        }
+    },
+    "pip:cffi": {
+        "2.0.0": {
+            "dependencies": {
+                "pip:pycparser": "*"
+            },
+            "is_source_package": false,
+            "name": "cffi",
+            "source": "pip",
+            "version": "2.0.0",
+            "vulnerabilities": []
+        }
+    },
+    "pip:chacha20poly1305-reuseable": {
+        "0.13.2": {
+            "dependencies": {
+                "pip:cryptography": ">=43.0.0"
+            },
+            "is_source_package": false,
+            "name": "chacha20poly1305-reuseable",
+            "source": "pip",
+            "version": "0.13.2",
+            "vulnerabilities": []
+        }
+    },
+    "pip:chardet": {
+        "3.0.2": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "chardet",
+            "source": "pip",
+            "version": "3.0.2",
+            "vulnerabilities": []
+        }
+    },
+    "pip:charset-normalizer": {
+        "2.0.0": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "charset-normalizer",
+            "source": "pip",
+            "version": "2.0.0",
+            "vulnerabilities": []
+        }
+    },
+    "pip:click": {
+        "0.1.0": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "click",
+            "source": "pip",
+            "version": "0.1.0",
+            "vulnerabilities": [
+                "USN-2771-1 ()",
+                "PYSEC-2026-2132 (CVE-2026-7246, GHSA-47fr-3ffg-hgmw)",
+                "UBUNTU-CVE-2015-8768 ()"
+            ]
+        },
+        "8.0.4": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "click",
+            "source": "pip",
+            "version": "8.0.4",
+            "vulnerabilities": [
+                "PYSEC-2026-2132 (CVE-2026-7246, GHSA-47fr-3ffg-hgmw)"
+            ]
+        },
+        "8.3.3": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "click",
+            "source": "pip",
+            "version": "8.3.3",
+            "vulnerabilities": []
+        }
+    },
+    "pip:colorama": {
+        "0.1.0": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "colorama",
+            "source": "pip",
+            "version": "0.1.0",
+            "vulnerabilities": []
+        },
+        "0.4.6": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "colorama",
+            "source": "pip",
+            "version": "0.4.6",
+            "vulnerabilities": []
+        }
+    },
+    "pip:cryptography": {
+        "43.0.0": {
+            "dependencies": {
+                "pip:cffi": ">=2.0.0"
+            },
+            "is_source_package": false,
+            "name": "cryptography",
+            "source": "pip",
+            "version": "43.0.0",
+            "vulnerabilities": [
+                "ECHO-1b10-505e-409c ()",
+                "GHSA-m2h6-j472-rp4c (CVE-2026-69248, PYSEC-2026-3554)",
+                "ECHO-896e-5bc2-1efe ()",
+                "ECHO-9290-b93d-4581 ()",
+                "GHSA-m959-cc7f-wv43 (CVE-2026-34073, PYSEC-2026-35)",
+                "GHSA-r6ph-v2qm-q3c2 (CVE-2026-26007, PYSEC-2026-2141)",
+                "GHSA-79v4-65xg-pq4g (CVE-2024-12797, PYSEC-2026-1284)",
+                "PYSEC-2026-35 (CVE-2026-34073, GHSA-m959-cc7f-wv43)",
+                "GHSA-537c-gmf6-5ccf ()",
+                "PYSEC-2026-1284 (CVE-2024-12797, GHSA-79v4-65xg-pq4g)",
+                "ROOT-APP-PYPI-CVE-2026-34073 ()",
+                "PYSEC-2026-3554 (CVE-2026-69248, GHSA-m2h6-j472-rp4c)",
+                "PYSEC-2026-3553 (CVE-2026-69249, GHSA-jwv3-5hgf-82ww)",
+                "PYSEC-2026-2141 (CVE-2026-26007, GHSA-r6ph-v2qm-q3c2)",
+                "ECHO-1e23-77eb-13c2 ()",
+                "GHSA-h4gh-qq45-vh27 ()",
+                "GHSA-jwv3-5hgf-82ww (CVE-2026-69249, PYSEC-2026-3553)",
+                "ROOT-APP-PYPI-CVE-2024-12797 ()",
+                "ROOT-APP-PYPI-CVE-2026-39892 ()",
+                "ECHO-4b9f-fbf8-c429 ()",
+                "ECHO-0a60-183d-a61b ()",
+                "ECHO-23a2-4e16-ccb1 ()"
+            ]
+        },
+        "48.0.0": {
+            "dependencies": {
+                "pip:cffi": ">=2.0.0"
+            },
+            "is_source_package": false,
+            "name": "cryptography",
+            "source": "pip",
+            "version": "48.0.0",
+            "vulnerabilities": [
+                "ECHO-1b10-505e-409c ()",
+                "GHSA-m2h6-j472-rp4c (CVE-2026-69248, PYSEC-2026-3554)",
+                "PYSEC-2026-3553 (CVE-2026-69249, GHSA-jwv3-5hgf-82ww)",
+                "ECHO-896e-5bc2-1efe ()",
+                "PYSEC-2026-3554 (CVE-2026-69248, GHSA-m2h6-j472-rp4c)",
+                "GHSA-g6cj-pr64-35w5 (CVE-2026-69247, PYSEC-2026-3552)",
+                "ECHO-1e23-77eb-13c2 ()",
+                "GHSA-jwv3-5hgf-82ww (CVE-2026-69249, PYSEC-2026-3553)",
+                "PYSEC-2026-3552 (CVE-2026-69247, GHSA-g6cj-pr64-35w5)",
+                "ECHO-23a2-4e16-ccb1 ()",
+                "GHSA-537c-gmf6-5ccf ()"
+            ]
+        },
+        "50.0.0": {
+            "dependencies": {
+                "pip:cffi": ">=2.0.0"
+            },
+            "is_source_package": false,
+            "name": "cryptography",
+            "source": "pip",
+            "version": "50.0.0",
+            "vulnerabilities": []
+        }
+    },
+    "pip:esphome": {
+        "2026.8.0+dev0": {
+            "dependencies": {
+                "pip:aioesphomeapi": "==45.7.0",
+                "pip:argcomplete": ">=3.7.0",
+                "pip:bleak": "==2.1.1",
+                "pip:click": "==8.3.3",
+                "pip:colorama": "==0.4.6",
+                "pip:cryptography": "==50.0.0",
+                "pip:esphome-glyphsets": "==0.2.0",
+                "pip:esptool": "==5.3.1",
+                "pip:filelock": "==3.32.2",
+                "pip:freetype-py": "==2.5.1",
+                "pip:jinja2": "==3.1.6",
+                "pip:paho-mqtt": "==1.6.1",
+                "pip:pillow": "==12.3.0",
+                "pip:platformdirs": "==4.11.0",
+                "pip:platformio": "==6.1.19",
+                "pip:puremagic": "==2.2.0",
+                "pip:py7zr": "==1.1.3",
+                "pip:pyparsing": ">=3.3.2",
+                "pip:pyserial": "==3.5",
+                "pip:pyyaml": "==6.0.3",
+                "pip:requests": "==2.34.2",
+                "pip:resvg-py": "==0.3.3",
+                "pip:ruamel-yaml": "==0.19.1",
+                "pip:ruamel-yaml-clib": "==0.2.15",
+                "pip:smpclient": "==7.2.0",
+                "pip:tzdata": ">=2026.3",
+                "pip:tzlocal": "==5.4.4",
+                "pip:voluptuous": "==0.16.0",
+                "pip:zeroconf": "==0.150.0"
+            },
+            "is_source_package": true,
+            "name": "esphome",
+            "source": "pip",
+            "version": "2026.8.0+dev0",
+            "vulnerabilities": []
+        }
+    },
+    "pip:esphome-glyphsets": {
+        "0.2.0": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "esphome-glyphsets",
+            "source": "pip",
+            "version": "0.2.0",
+            "vulnerabilities": []
+        }
+    },
+    "pip:esptool": {
+        "5.3.1": {
+            "dependencies": {
+                "pip:bitstring": "!=4.2.0,>=3.1.6",
+                "pip:click": "<9",
+                "pip:cryptography": ">=43.0.0",
+                "pip:intelhex": "*",
+                "pip:pyserial": ">=3.3",
+                "pip:pyyaml": ">=5.1",
+                "pip:reedsolo": "<1.8,>=1.5.3",
+                "pip:rich-click": "<2"
+            },
+            "is_source_package": false,
+            "name": "esptool",
+            "source": "pip",
+            "version": "5.3.1",
+            "vulnerabilities": [
+                "UBUNTU-CVE-2023-46894 ()"
+            ]
+        }
+    },
+    "pip:filelock": {
+        "3.32.2": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "filelock",
+            "source": "pip",
+            "version": "3.32.2",
+            "vulnerabilities": []
+        }
+    },
+    "pip:freetype-py": {
+        "2.5.1": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "freetype-py",
+            "source": "pip",
+            "version": "2.5.1",
+            "vulnerabilities": []
+        }
+    },
+    "pip:idna": {
+        "2.5.0": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "idna",
+            "source": "pip",
+            "version": "2.5.0",
+            "vulnerabilities": [
+                "PYSEC-2026-215 (CVE-2026-45409, GHSA-65pc-fj4g-8rjx)",
+                "GHSA-jjg7-2v4v-x38h (CVE-2024-3651, PYSEC-2024-60)",
+                "ROOT-APP-PYPI-CVE-2026-45409 ()",
+                "ROOT-APP-PYPI-CVE-2024-3651 ()",
+                "GHSA-65pc-fj4g-8rjx (CVE-2026-45409, PYSEC-2026-215)",
+                "PYSEC-2024-60 (CVE-2024-3651, GHSA-jjg7-2v4v-x38h)"
+            ]
+        }
+    },
+    "pip:ifaddr": {
+        "0.1.7": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "ifaddr",
+            "source": "pip",
+            "version": "0.1.7",
+            "vulnerabilities": []
+        }
+    },
+    "pip:inflate64": {
+        "1.0.4": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "inflate64",
+            "source": "pip",
+            "version": "1.0.4",
+            "vulnerabilities": []
+        }
+    },
+    "pip:intelhex": {
+        "1.5.0": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "intelhex",
+            "source": "pip",
+            "version": "1.5.0",
+            "vulnerabilities": []
+        },
+        "2.3.0": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "intelhex",
+            "source": "pip",
+            "version": "2.3.0",
+            "vulnerabilities": []
+        }
+    },
+    "pip:jinja2": {
+        "3.1.6": {
+            "dependencies": {
+                "pip:markupsafe": ">=2.0"
+            },
+            "is_source_package": false,
+            "name": "jinja2",
+            "source": "pip",
+            "version": "3.1.6",
+            "vulnerabilities": [
+                "DEBIAN-CVE-2019-8341 ()",
+                "DEBIAN-CVE-2025-27516 ()",
+                "UBUNTU-CVE-2019-8341 ()"
+            ]
+        }
+    },
+    "pip:markupsafe": {
+        "2.0.0": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "markupsafe",
+            "source": "pip",
+            "version": "2.0.0",
+            "vulnerabilities": []
+        }
+    },
+    "pip:marshmallow": {
+        "3.0.0": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "marshmallow",
+            "source": "pip",
+            "version": "3.0.0",
+            "vulnerabilities": [
+                "ECHO-a840-85c8-68ac ()",
+                "GHSA-428g-f7cq-pgp5 (CVE-2025-68480, PYSEC-2026-1605)",
+                "PYSEC-2026-1605 (CVE-2025-68480, GHSA-428g-f7cq-pgp5)"
+            ]
+        }
+    },
+    "pip:multivolumefile": {
+        "0.2.3": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "multivolumefile",
+            "source": "pip",
+            "version": "0.2.3",
+            "vulnerabilities": []
+        }
+    },
+    "pip:noiseprotocol": {
+        "0.3.1": {
+            "dependencies": {
+                "pip:cryptography": ">=2.8"
+            },
+            "is_source_package": false,
+            "name": "noiseprotocol",
+            "source": "pip",
+            "version": "0.3.1",
+            "vulnerabilities": []
+        }
+    },
+    "pip:paho-mqtt": {
+        "1.6.1": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "paho-mqtt",
+            "source": "pip",
+            "version": "1.6.1",
+            "vulnerabilities": []
+        }
+    },
+    "pip:pillow": {
+        "12.3.0": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "pillow",
+            "source": "pip",
+            "version": "12.3.0",
+            "vulnerabilities": [
+                "UBUNTU-CVE-2026-54058 ()",
+                "DEBIAN-CVE-2026-54060 ()",
+                "UBUNTU-CVE-2026-42308 ()",
+                "UBUNTU-CVE-2026-55380 ()",
+                "DEBIAN-CVE-2026-54058 ()",
+                "DEBIAN-CVE-2026-59200 ()",
+                "DEBIAN-CVE-2026-59204 ()",
+                "BIT-pillow-2025-48379 (CVE-2025-48379, GHSA-xg8h-j46f-w952, PYSEC-2025-61)",
+                "DEBIAN-CVE-2026-59197 ()",
+                "UBUNTU-CVE-2026-55798 ()",
+                "UBUNTU-CVE-2026-55379 ()",
+                "UBUNTU-CVE-2026-59198 ()",
+                "UBUNTU-CVE-2026-59197 ()",
+                "DEBIAN-CVE-2026-42308 ()",
+                "DEBIAN-CVE-2026-59205 ()",
+                "DEBIAN-CVE-2026-42310 ()",
+                "UBUNTU-CVE-2026-42310 ()",
+                "UBUNTU-CVE-2026-59199 ()",
+                "BIT-pillow-2024-28219 (CVE-2024-28219, GHSA-44wm-f244-xhp3, PYSEC-2026-1793)",
+                "UBUNTU-CVE-2026-54059 ()",
+                "DEBIAN-CVE-2026-59199 ()",
+                "DEBIAN-CVE-2026-54059 ()",
+                "UBUNTU-CVE-2026-54060 ()",
+                "DEBIAN-CVE-2026-59198 ()",
+                "DEBIAN-CVE-2026-55379 ()",
+                "UBUNTU-CVE-2026-59204 ()",
+                "DEBIAN-CVE-2026-59203 ()",
+                "UBUNTU-CVE-2026-59203 ()",
+                "UBUNTU-CVE-2026-59200 ()",
+                "UBUNTU-CVE-2026-59205 ()",
+                "DEBIAN-CVE-2026-55380 ()"
+            ]
+        }
+    },
+    "pip:platformdirs": {
+        "4.11.0": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "platformdirs",
+            "source": "pip",
+            "version": "4.11.0",
+            "vulnerabilities": []
+        }
+    },
+    "pip:platformio": {
+        "6.1.19": {
+            "dependencies": {
+                "pip:ajsonrpc": "==1.2.*",
+                "pip:bottle": "==0.13.*",
+                "pip:chardet": "<6,>=3.0.2",
+                "pip:click": "<8.4,>=8.0.4",
+                "pip:colorama": "*",
+                "pip:marshmallow": "==3.*",
+                "pip:pyelftools": "<1,>=0.27",
+                "pip:pyserial": "==3.5.*",
+                "pip:requests": "==2.*",
+                "pip:semantic-version": "==2.10.*",
+                "pip:starlette": "<0.53,>=0.19",
+                "pip:tabulate": "==0.*",
+                "pip:uvicorn": "<0.41,>=0.16",
+                "pip:wsproto": "==1.*"
+            },
+            "is_source_package": false,
+            "name": "platformio",
+            "source": "pip",
+            "version": "6.1.19",
+            "vulnerabilities": [
+                "MAL-2025-3640 (GHSA-7376-3h6f-qxmm, SNYK-JS-PLATFORMIO-10060210)"
+            ]
+        }
+    },
+    "pip:protobuf": {
+        "6.30.0-rc1": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "protobuf",
+            "source": "pip",
+            "version": "6.30.0-rc1",
+            "vulnerabilities": [
+                "PYSEC-2026-1805 (CVE-2026-0994, GHSA-7gcm-g887-7qv7)",
+                "SUSE-SU-2025:20155-1 ()",
+                "DEBIAN-CVE-2022-3510 ()",
+                "SUSE-SU-2026:0374-1 ()",
+                "openSUSE-SU-2026:10515-1 ()",
+                "SUSE-SU-2024:3745-1 ()",
+                "SUSE-SU-2026:0517-1 ()",
+                "UBUNTU-CVE-2026-6409 ()",
+                "UBUNTU-CVE-2025-4565 ()",
+                "GHSA-8qvm-5x2c-j2w7 (CVE-2025-4565, PYSEC-2026-1806)",
+                "SUSE-SU-2026:0563-1 ()",
+                "UBUNTU-CVE-2024-7254 ()",
+                "OESA-2025-1798 ()",
+                "SUSE-SU-2024:0573-1 ()",
+                "SUSE-SU-2025:20514-1 ()",
+                "AZL-64145 ()",
+                "OESA-2025-1799 ()",
+                "SUSE-SU-2026:20907-1 ()",
+                "AZL-35125 ()",
+                "DEBIAN-CVE-2022-3509 ()",
+                "SUSE-SU-2026:20490-1 ()",
+                "DEBIAN-CVE-2026-0994 ()",
+                "OESA-2025-1144 ()",
+                "OESA-2025-1801 ()",
+                "SUSE-SU-2024:3746-1 ()",
+                "DEBIAN-CVE-2022-3171 ()",
+                "UBUNTU-CVE-2015-5237 ()",
+                "SUSE-RU-2024:1637-3 ()",
+                "SUSE-SU-2025:20074-1 ()",
+                "UBUNTU-CVE-2022-1941 ()",
+                "UBUNTU-CVE-2021-22569 ()",
+                "UBUNTU-CVE-2022-3509 ()",
+                "openSUSE-SU-2026:20390-1 ()",
+                "SUSE-SU-2024:3747-1 ()",
+                "SUSE-SU-2026:20352-1 ()",
+                "SUSE-SU-2026:20753-1 ()",
+                "GHSA-7gcm-g887-7qv7 (CVE-2026-0994, PYSEC-2026-1805)",
+                "BELL-CVE-2024-7254 ()",
+                "AZL-75830 ()",
+                "SUSE-SU-2025:02310-1 ()",
+                "openSUSE-SU-2025:15265-1 ()",
+                "SUSE-RU-2024:1637-1 ()",
+                "SUSE-SU-2025:02311-1 ()",
+                "OESA-2026-1432 ()",
+                "UBUNTU-CVE-2022-3171 ()",
+                "DEBIAN-CVE-2026-6409 ()",
+                "openSUSE-SU-2025:14832-1 ()",
+                "UBUNTU-CVE-2022-3510 ()",
+                "SUSE-SU-2025:02309-1 ()",
+                "DEBIAN-CVE-2025-4565 ()",
+                "DEBIAN-CVE-2015-5237 ()",
+                "SUSE-SU-2025:20672-1 ()",
+                "PYSEC-2026-1806 (CVE-2025-4565, GHSA-8qvm-5x2c-j2w7)",
+                "DEBIAN-CVE-2024-7254 ()"
+            ]
+        }
+    },
+    "pip:psutil": {
+        "0.1.1": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "psutil",
+            "source": "pip",
+            "version": "0.1.1",
+            "vulnerabilities": [
+                "PYSEC-2019-41 (CVE-2019-18874, GHSA-qfc5-mcwq-26q8)",
+                "GHSA-qfc5-mcwq-26q8 (CVE-2019-18874, PYSEC-2019-41)"
+            ]
+        }
+    },
+    "pip:puremagic": {
+        "2.2.0": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "puremagic",
+            "source": "pip",
+            "version": "2.2.0",
+            "vulnerabilities": []
+        }
+    },
+    "pip:py7zr": {
+        "1.1.3": {
+            "dependencies": {
+                "pip:brotli": ">=1.2.0",
+                "pip:inflate64": ">=1.0.4",
+                "pip:multivolumefile": ">=0.2.3",
+                "pip:psutil": "*",
+                "pip:pybcj": ">=1.0.6",
+                "pip:pycryptodomex": ">=3.20.0",
+                "pip:pyppmd": ">=1.3.1",
+                "pip:texttable": "*"
+            },
+            "is_source_package": false,
+            "name": "py7zr",
+            "source": "pip",
+            "version": "1.1.3",
+            "vulnerabilities": [
+                "DEBIAN-CVE-2026-23879 ()",
+                "UBUNTU-CVE-2026-55206 ()",
+                "DEBIAN-CVE-2026-55206 ()",
+                "UBUNTU-CVE-2026-23879 ()",
+                "UBUNTU-CVE-2026-55195 ()",
+                "DEBIAN-CVE-2026-55195 ()"
+            ]
+        }
+    },
+    "pip:pybcj": {
+        "1.0.6": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "pybcj",
+            "source": "pip",
+            "version": "1.0.6",
+            "vulnerabilities": []
+        }
+    },
+    "pip:pycryptodomex": {
+        "3.20.0": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "pycryptodomex",
+            "source": "pip",
+            "version": "3.20.0",
+            "vulnerabilities": []
+        }
+    },
+    "pip:pyelftools": {
+        "0.27.0": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "pyelftools",
+            "source": "pip",
+            "version": "0.27.0",
+            "vulnerabilities": []
+        }
+    },
+    "pip:pyobjc-core": {
+        "10.3.0": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "pyobjc-core",
+            "source": "pip",
+            "version": "10.3.0",
+            "vulnerabilities": []
+        }
+    },
+    "pip:pyobjc-framework-corebluetooth": {
+        "10.3.0": {
+            "dependencies": {
+                "pip:pyobjc-core": ">=12.2.1",
+                "pip:pyobjc-framework-cocoa": ">=12.2.1"
+            },
+            "is_source_package": false,
+            "name": "pyobjc-framework-corebluetooth",
+            "source": "pip",
+            "version": "10.3.0",
+            "vulnerabilities": []
+        }
+    },
+    "pip:pyobjc-framework-libdispatch": {
+        "10.3.0": {
+            "dependencies": {
+                "pip:pyobjc-core": ">=12.2.1",
+                "pip:pyobjc-framework-cocoa": ">=12.2.1"
+            },
+            "is_source_package": false,
+            "name": "pyobjc-framework-libdispatch",
+            "source": "pip",
+            "version": "10.3.0",
+            "vulnerabilities": []
+        }
+    },
+    "pip:pyparsing": {
+        "3.3.2": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "pyparsing",
+            "source": "pip",
+            "version": "3.3.2",
+            "vulnerabilities": []
+        }
+    },
+    "pip:pyppmd": {
+        "1.3.1": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "pyppmd",
+            "source": "pip",
+            "version": "1.3.1",
+            "vulnerabilities": []
+        }
+    },
+    "pip:pyserial": {
+        "3.3.0": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "pyserial",
+            "source": "pip",
+            "version": "3.3.0",
+            "vulnerabilities": [
+                "MAL-2025-4869 (GHSA-3r3m-hqgf-4wx6, SNYK-JS-PYSERIAL-10338496)"
+            ]
+        },
+        "3.5.0": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "pyserial",
+            "source": "pip",
+            "version": "3.5.0",
+            "vulnerabilities": [
+                "MAL-2025-4869 (GHSA-3r3m-hqgf-4wx6, SNYK-JS-PYSERIAL-10338496)"
+            ]
+        }
+    },
+    "pip:pyyaml": {
+        "5.1.0": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "pyyaml",
+            "source": "pip",
+            "version": "5.1.0",
+            "vulnerabilities": [
+                "PYSEC-2020-96 (CVE-2020-1747, GHSA-6757-jp84-gxfx)",
+                "GHSA-6757-jp84-gxfx (CVE-2020-1747, PYSEC-2020-96)",
+                "GHSA-3pqx-4fqf-j49f (CVE-2019-20477, PYSEC-2020-176)",
+                "DEBIAN-CVE-2020-14343 ()",
+                "GHSA-8q59-q68h-6hv4 (CVE-2020-14343, PYSEC-2021-142)",
+                "DEBIAN-CVE-2019-20477 ()",
+                "PYSEC-2021-142 (CVE-2020-14343, GHSA-8q59-q68h-6hv4)",
+                "UBUNTU-CVE-2020-14343 ()",
+                "DEBIAN-CVE-2017-18342 ()",
+                "PYSEC-2020-176 (CVE-2019-20477, GHSA-3pqx-4fqf-j49f)",
+                "DEBIAN-CVE-2020-1747 ()",
+                "UBUNTU-CVE-2017-18342 ()",
+                "USN-4940-1 ()"
+            ]
+        },
+        "6.0.3": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "pyyaml",
+            "source": "pip",
+            "version": "6.0.3",
+            "vulnerabilities": [
+                "UBUNTU-CVE-2017-18342 ()"
+            ]
+        }
+    },
+    "pip:reedsolo": {
+        "1.5.3": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "reedsolo",
+            "source": "pip",
+            "version": "1.5.3",
+            "vulnerabilities": []
+        }
+    },
+    "pip:requests": {
+        "2.0.0": {
+            "dependencies": {
+                "pip:certifi": ">=2023.5.7",
+                "pip:charset-normalizer": "<4,>=2",
+                "pip:idna": "<4,>=2.5",
+                "pip:urllib3": "<3,>=1.26"
+            },
+            "is_source_package": false,
+            "name": "requests",
+            "source": "pip",
+            "version": "2.0.0",
+            "vulnerabilities": [
+                "PYSEC-2026-1873 (CVE-2024-35195, GHSA-9wx4-h78v-vm56)",
+                "UBUNTU-CVE-2015-2296 ()",
+                "DEBIAN-CVE-2026-25645 ()",
+                "DLA-3456-1 ()",
+                "GHSA-9hjg-9r4m-mvj7 (CVE-2024-47081, PYSEC-2026-1872)",
+                "GHSA-cfj3-7x9c-4p3h (CVE-2014-1829, PYSEC-2014-13)",
+                "ROOT-APP-PYPI-CVE-2024-35195 ()",
+                "UBUNTU-CVE-2014-1830 ()",
+                "UBUNTU-CVE-2024-35195 ()",
+                "DEBIAN-CVE-2024-35195 ()",
+                "ROOT-APP-PYPI-CVE-2018-18074 ()",
+                "UBUNTU-CVE-2018-18074 ()",
+                "USN-3790-1 ()",
+                "DEBIAN-CVE-2015-2296 ()",
+                "GHSA-9wx4-h78v-vm56 (CVE-2024-35195, PYSEC-2026-1873)",
+                "UBUNTU-CVE-2023-32681 ()",
+                "USN-6155-2 ()",
+                "USN-2531-1 ()",
+                "PYSEC-2015-17 (CVE-2015-2296, GHSA-pg2w-x9wp-vw92)",
+                "PYSEC-2026-1872 (CVE-2024-47081, GHSA-9hjg-9r4m-mvj7)",
+                "ROOT-APP-PYPI-CVE-2023-32681 ()",
+                "GHSA-652x-xj99-gmcc (CVE-2014-1830, PYSEC-2014-14)",
+                "DEBIAN-CVE-2018-18074 ()",
+                "GHSA-gc5v-m9x4-r6x2 (CVE-2026-25645, PYSEC-2026-2275)",
+                "DEBIAN-CVE-2023-32681 ()",
+                "ECHO-746a-0a98-0b10 ()",
+                "UBUNTU-CVE-2026-25645 ()",
+                "GHSA-x84v-xcm2-53pg (CVE-2018-18074, PYSEC-2018-28)",
+                "DEBIAN-CVE-2024-47081 ()",
+                "ECHO-74d4-cc6f-7870 ()",
+                "PYSEC-2018-28 (CVE-2018-18074, GHSA-x84v-xcm2-53pg)",
+                "USN-7568-1 ()",
+                "USN-2382-1 ()",
+                "ROOT-APP-PYPI-CVE-2026-25645 ()",
+                "ECHO-6fd0-2865-91ff ()",
+                "ROOT-APP-PYPI-CVE-2024-47081 ()",
+                "PYSEC-2014-13 (CVE-2014-1829, GHSA-cfj3-7x9c-4p3h)",
+                "UBUNTU-CVE-2014-1829 ()",
+                "DEBIAN-CVE-2014-1830 ()",
+                "PYSEC-2026-2275 (CVE-2026-25645, GHSA-gc5v-m9x4-r6x2)",
+                "UBUNTU-CVE-2024-47081 ()",
+                "ECHO-3146-7a27-2d5a ()",
+                "DEBIAN-CVE-2014-1829 ()",
+                "ECHO-acbd-1583-01d0 ()",
+                "PYSEC-2014-14 (CVE-2014-1830, GHSA-652x-xj99-gmcc)",
+                "USN-6155-1 ()",
+                "ECHO-8499-05d3-fb08 ()"
+            ]
+        },
+        "2.34.2": {
+            "dependencies": {
+                "pip:certifi": ">=2023.5.7",
+                "pip:charset-normalizer": "<4,>=2",
+                "pip:idna": "<4,>=2.5",
+                "pip:urllib3": "<3,>=1.26"
+            },
+            "is_source_package": false,
+            "name": "requests",
+            "source": "pip",
+            "version": "2.34.2",
+            "vulnerabilities": [
+                "DEBIAN-CVE-2024-47081 ()",
+                "DEBIAN-CVE-2026-25645 ()",
+                "UBUNTU-CVE-2024-35195 ()",
+                "DEBIAN-CVE-2024-35195 ()",
+                "DEBIAN-CVE-2023-32681 ()",
+                "UBUNTU-CVE-2026-25645 ()"
+            ]
+        }
+    },
+    "pip:resvg-py": {
+        "0.3.3": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "resvg-py",
+            "source": "pip",
+            "version": "0.3.3",
+            "vulnerabilities": []
+        }
+    },
+    "pip:rich-click": {
+        "0.1.0": {
+            "dependencies": {
+                "pip:click": ">=8",
+                "pip:rich": ">=12"
+            },
+            "is_source_package": false,
+            "name": "rich-click",
+            "source": "pip",
+            "version": "0.1.0",
+            "vulnerabilities": []
+        }
+    },
+    "pip:ruamel-yaml": {
+        "0.19.1": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "ruamel-yaml",
+            "source": "pip",
+            "version": "0.19.1",
+            "vulnerabilities": []
+        }
+    },
+    "pip:ruamel-yaml-clib": {
+        "0.2.15": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "ruamel-yaml-clib",
+            "source": "pip",
+            "version": "0.2.15",
+            "vulnerabilities": []
+        }
+    },
+    "pip:semantic-version": {
+        "2.10.0": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "semantic-version",
+            "source": "pip",
+            "version": "2.10.0",
+            "vulnerabilities": []
+        }
+    },
+    "pip:smp": {
+        "4.1.0": {
+            "dependencies": {
+                "pip:cbor2": "<6.0.0,>=5.5.1",
+                "pip:crcmod": "<2.0,>=1.7",
+                "pip:pydantic": "<3.0,>=2.6"
+            },
+            "is_source_package": false,
+            "name": "smp",
+            "source": "pip",
+            "version": "4.1.0",
+            "vulnerabilities": []
+        }
+    },
+    "pip:smpclient": {
+        "7.2.0": {
+            "dependencies": {
+                "pip:intelhex": ">=2.3.0",
+                "pip:smp": ">=4.1.0"
+            },
+            "is_source_package": false,
+            "name": "smpclient",
+            "source": "pip",
+            "version": "7.2.0",
+            "vulnerabilities": []
+        }
+    },
+    "pip:starlette": {
+        "0.19.0": {
+            "dependencies": {
+                "pip:anyio": "<5,>=3.6.2"
+            },
+            "is_source_package": false,
+            "name": "starlette",
+            "source": "pip",
+            "version": "0.19.0",
+            "vulnerabilities": [
+                "DEBIAN-CVE-2026-48817 ()",
+                "GHSA-v5gw-mw7f-84px (CVE-2023-29159, PYSEC-2023-83)",
+                "UBUNTU-CVE-2023-29159 ()",
+                "ROOT-APP-PYPI-CVE-2025-62727 ()",
+                "ECHO-e56a-8ef3-f017 ()",
+                "ROOT-APP-PYPI-CVE-2026-54282 ()",
+                "ROOT-APP-PYPI-CVE-2026-54283 ()",
+                "DEBIAN-CVE-2025-62727 ()",
+                "ECHO-8103-2b4d-a762 ()",
+                "GHSA-wqp7-x3pw-xc5r (CVE-2026-48818, PYSEC-2026-2281)",
+                "PYSEC-2023-48 (CVE-2023-30798, GHSA-74m5-2c7w-9w3x)",
+                "DEBIAN-CVE-2023-29159 ()",
+                "PYSEC-2026-249 (CVE-2026-54283, GHSA-82w8-qh3p-5jfq)",
+                "DEBIAN-CVE-2025-54121 ()",
+                "UBUNTU-CVE-2024-47874 ()",
+                "UBUNTU-CVE-2026-48818 ()",
+                "UBUNTU-CVE-2023-30798 ()",
+                "ECHO-fc38-da22-1afb ()",
+                "PYSEC-2026-2280 (CVE-2026-48817, GHSA-x746-7m8f-x49c)",
+                "PYSEC-2026-1943 (CVE-2024-47874, GHSA-f96h-pmfr-66vw)",
+                "PYSEC-2026-161 (CVE-2026-48710, GHSA-86qp-5c8j-p5mr, X41-2026-002)",
+                "UBUNTU-CVE-2026-54283 ()",
+                "UBUNTU-CVE-2025-54121 ()",
+                "GHSA-jp82-jpqv-5vv3 (CVE-2026-54282, PYSEC-2026-248)",
+                "GHSA-82w8-qh3p-5jfq (CVE-2026-54283, PYSEC-2026-249)",
+                "GHSA-86qp-5c8j-p5mr (CVE-2026-48710, PYSEC-2026-161, X41-2026-002)",
+                "DEBIAN-CVE-2026-54283 ()",
+                "ECHO-c63d-05ac-97df ()",
+                "PYSEC-2026-1941 (CVE-2025-54121, GHSA-2c2j-9gv5-cj73)",
+                "ROOT-APP-PYPI-CVE-2024-47874 ()",
+                "GHSA-74m5-2c7w-9w3x (CVE-2023-30798, PYSEC-2023-48)",
+                "ROOT-APP-PYPI-CVE-2023-30798 ()",
+                "UBUNTU-CVE-2026-48710 ()",
+                "UBUNTU-CVE-2026-54282 ()",
+                "GHSA-2c2j-9gv5-cj73 (CVE-2025-54121, PYSEC-2026-1941)",
+                "ECHO-9688-fa29-3d55 ()",
+                "GHSA-x746-7m8f-x49c (CVE-2026-48817, PYSEC-2026-2280)",
+                "ROOT-APP-PYPI-CVE-2026-48817 ()",
+                "DEBIAN-CVE-2023-30798 ()",
+                "DEBIAN-CVE-2026-48710 ()",
+                "PYSEC-2026-2281 (CVE-2026-48818, GHSA-wqp7-x3pw-xc5r)",
+                "DEBIAN-CVE-2026-54282 ()",
+                "UBUNTU-CVE-2026-48817 ()",
+                "PYSEC-2023-83 (CVE-2023-29159, GHSA-v5gw-mw7f-84px)",
+                "GHSA-f96h-pmfr-66vw (CVE-2024-47874, PYSEC-2026-1943)",
+                "PYSEC-2026-248 (CVE-2026-54282, GHSA-jp82-jpqv-5vv3)",
+                "UBUNTU-CVE-2025-62727 ()",
+                "DEBIAN-CVE-2024-47874 ()",
+                "ROOT-APP-PYPI-CVE-2025-54121 ()",
+                "ROOT-APP-PYPI-CVE-2026-48818 ()",
+                "ECHO-0b16-11b5-0d47 ()"
+            ]
+        }
+    },
+    "pip:tabulate": {
+        "0.3.0": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "tabulate",
+            "source": "pip",
+            "version": "0.3.0",
+            "vulnerabilities": []
+        }
+    },
+    "pip:texttable": {
+        "0.8.0": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "texttable",
+            "source": "pip",
+            "version": "0.8.0",
+            "vulnerabilities": []
+        }
+    },
+    "pip:tzdata": {
+        "2026.2.0": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "tzdata",
+            "source": "pip",
+            "version": "2026.2.0",
+            "vulnerabilities": []
+        },
+        "2026.3.0": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "tzdata",
+            "source": "pip",
+            "version": "2026.3.0",
+            "vulnerabilities": []
+        }
+    },
+    "pip:tzlocal": {
+        "5.3.1": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "tzlocal",
+            "source": "pip",
+            "version": "5.3.1",
+            "vulnerabilities": []
+        },
+        "5.4.4": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "tzlocal",
+            "source": "pip",
+            "version": "5.4.4",
+            "vulnerabilities": []
+        }
+    },
+    "pip:urllib3": {
+        "1.26.0": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "urllib3",
+            "source": "pip",
+            "version": "1.26.0",
+            "vulnerabilities": [
+                "GHSA-v845-jxx5-vc9f (CVE-2023-43804, PYSEC-2023-192)",
+                "PYSEC-2023-212 (CVE-2023-45803, GHSA-g4mx-q9vg-27p4)",
+                "PYSEC-2023-192 (CVE-2023-43804, GHSA-v845-jxx5-vc9f)",
+                "GHSA-qccp-gfcp-xxvc (CVE-2026-44431, PYSEC-2026-141)",
+                "ROOT-APP-PYPI-CVE-2026-44432 ()",
+                "ECHO-61da-f889-9d2c ()",
+                "PYSEC-2026-1995 (CVE-2024-37891, GHSA-34jh-p97f-mpxf)",
+                "GHSA-g4mx-q9vg-27p4 (CVE-2023-45803, PYSEC-2023-212)",
+                "GHSA-q2q7-5pp4-w6pg (CVE-2021-33503, PYSEC-2021-108)",
+                "ECHO-4544-3b20-7e41 ()",
+                "GHSA-2xpw-w6gg-jr37 (CVE-2025-66471, PYSEC-2026-1994)",
+                "GHSA-38jv-5279-wg99 (CVE-2026-21441, PYSEC-2026-1996)",
+                "GHSA-34jh-p97f-mpxf (CVE-2024-37891, PYSEC-2026-1995)",
+                "PYSEC-2021-59 (CVE-2021-28363, GHSA-5phf-pp7p-vc2r)",
+                "GHSA-5phf-pp7p-vc2r (CVE-2021-28363, PYSEC-2021-59)",
+                "ROOT-APP-PYPI-CVE-2025-50182 ()",
+                "PYSEC-2021-108 (CVE-2021-33503, GHSA-q2q7-5pp4-w6pg)",
+                "GHSA-pq67-6m6q-mj2v (CVE-2025-50181, PYSEC-2026-1999)",
+                "PYSEC-2026-1998 (CVE-2025-66418, GHSA-gm62-xv2j-4w53)",
+                "ROOT-APP-PYPI-CVE-2021-28363 ()",
+                "PYSEC-2026-1994 (CVE-2025-66471, GHSA-2xpw-w6gg-jr37)",
+                "PYSEC-2026-1996 (CVE-2026-21441, GHSA-38jv-5279-wg99)",
+                "GHSA-gm62-xv2j-4w53 (CVE-2025-66418, PYSEC-2026-1998)",
+                "PYSEC-2026-141 (CVE-2026-44431, GHSA-qccp-gfcp-xxvc)",
+                "PYSEC-2026-1999 (CVE-2025-50181, GHSA-pq67-6m6q-mj2v)"
+            ]
+        }
+    },
+    "pip:uvicorn": {
+        "0.16.0": {
+            "dependencies": {
+                "pip:click": ">=7.0",
+                "pip:h11": ">=0.8"
+            },
+            "is_source_package": false,
+            "name": "uvicorn",
+            "source": "pip",
+            "version": "0.16.0",
+            "vulnerabilities": [
+                "MAL-2025-4901 (GHSA-2pw2-crvh-r9c5, SNYK-JS-UVICORN-10335831)"
+            ]
+        }
+    },
+    "pip:voluptuous": {
+        "0.16.0": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "voluptuous",
+            "source": "pip",
+            "version": "0.16.0",
+            "vulnerabilities": []
+        }
+    },
+    "pip:wsproto": {
+        "1.0.0": {
+            "dependencies": {
+                "pip:h11": "<1,>=0.16.0"
+            },
+            "is_source_package": false,
+            "name": "wsproto",
+            "source": "pip",
+            "version": "1.0.0",
+            "vulnerabilities": []
+        }
+    },
+    "pip:zeroconf": {
+        "0.150.0": {
+            "dependencies": {
+                "pip:ifaddr": ">=0.1.7"
+            },
+            "is_source_package": false,
+            "name": "zeroconf",
+            "source": "pip",
+            "version": "0.150.0",
+            "vulnerabilities": []
+        }
+    }
+}

@@ -1,78 +1,622 @@
 <html>
 <head>
-<title>It-Depends | Dependency Graph for npm:zigbee2mqtt</title>
-<style type="text/css">
-mynetwork {
+<meta charset="utf-8">
+<title>It-Depends | Dependency Graphs</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --fg: #1a1a1a;
+    --muted: #666666;
+    --border: #d8d8d8;
+    --row-hover: #f0f0f0;
+    --row-active: #e4edff;
+    --badge-degenerate-bg: #fde3cf;
+    --badge-degenerate-fg: #8a4b0a;
+    --badge-vulns-bg: #dff3df;
+    --badge-vulns-fg: #226622;
+    --link: #1554c4;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--fg);
+  }
+  #app {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+  }
+  #sidebar {
+    width: 320px;
+    min-width: 320px;
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+  }
+  #sidebar-header {
+    padding: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  #sidebar-header h1 {
+    font-size: 15px;
+    margin: 0 0 8px 0;
+  }
+  #filter {
+    width: 100%;
+    padding: 6px 8px;
+    font-size: 13px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+  }
+  #repo-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 4px 0;
+  }
+  .repo-row {
+    display: block;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-bottom: 1px solid #eeeeee;
+    text-decoration: none;
+    color: inherit;
+  }
+  .repo-row:hover { background: var(--row-hover); }
+  .repo-row.active { background: var(--row-active); }
+  .repo-name {
+    font-size: 13px;
+    font-weight: 600;
+    word-break: break-word;
+  }
+  .repo-meta {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+  .badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 1px 6px;
+    border-radius: 10px;
+    margin-left: 4px;
+  }
+  .badge-degenerate {
+    background: var(--badge-degenerate-bg);
+    color: var(--badge-degenerate-fg);
+  }
+  .badge-vulns {
+    background: var(--badge-vulns-bg);
+    color: var(--badge-vulns-fg);
+  }
+  details.group summary {
+    padding: 8px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--muted);
+    cursor: pointer;
+    border-bottom: 1px solid #eeeeee;
+  }
+  #not-published {
+    border-top: 1px solid var(--border);
+    padding: 10px 12px;
+    font-size: 11px;
+    color: var(--muted);
+  }
+  #not-published h2 {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin: 0 0 6px 0;
+  }
+  #not-published ul {
+    margin: 0;
+    padding-left: 16px;
+  }
+  #not-published li {
+    margin-bottom: 4px;
+  }
+  #main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    min-width: 0;
+  }
+  #header {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  #header h2 {
+    margin: 0 0 4px 0;
+    font-size: 16px;
+  }
+  #header-meta {
+    font-size: 12px;
+    color: var(--muted);
+  }
+  #header-links {
+    margin-top: 6px;
+    font-size: 12px;
+  }
+  #header-links a {
+    color: var(--link);
+    margin-right: 12px;
+  }
+  #note {
+    margin-top: 6px;
+    font-size: 12px;
+    color: var(--badge-degenerate-fg);
+  }
+  #frame-wrap {
+    flex: 1;
+    padding: 12px 16px 16px 16px;
+    min-height: 0;
+  }
+  iframe {
     width: 100%;
     height: 100%;
-    border: 1px solid lightgray;
-}
+    border: 1px solid var(--border);
+    display: block;
+  }
+  #landing {
+    padding: 24px;
+    max-width: 640px;
+    line-height: 1.5;
+    font-size: 14px;
+  }
+  #landing h2 { margin-top: 0; }
+  #landing ul { padding-left: 20px; }
+  #footer {
+    padding: 6px 16px;
+    font-size: 11px;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1c1c1e;
+      --fg: #e8e8e8;
+      --muted: #999999;
+      --border: #3a3a3c;
+      --row-hover: #2a2a2c;
+      --row-active: #2c3a55;
+      --badge-degenerate-bg: #4a3218;
+      --badge-degenerate-fg: #f0b878;
+      --badge-vulns-bg: #1e3a1e;
+      --badge-vulns-fg: #8fd98f;
+      --link: #7aa7ff;
+    }
+    .repo-row { border-bottom-color: #2e2e30; }
+    details.group summary { border-bottom-color: #2e2e30; }
+  }
 </style>
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
-<center>
-<h1>Dependency Graph for npm:zigbee2mqtt</h1>
-</center>
 </head>
-
-
 <body>
-<div id = "mynetwork"></div>
+<div id="app">
+  <div id="sidebar">
+    <div id="sidebar-header">
+      <h1>It-Depends graphs</h1>
+      <input id="filter" type="text" placeholder="Filter repos&hellip;" autocomplete="off">
+    </div>
+    <div id="repo-list"></div>
+    <div id="not-published"></div>
+  </div>
+  <div id="main">
+    <div id="header"></div>
+    <div id="frame-wrap"></div>
+    <div id="footer">Generated 2026-08-06 &middot; it-depends v0.2.1, Docker off</div>
+  </div>
+</div>
 
-<script type="text/javascript">
+<script>
+// Parsed from runs.csv at build time (not fetched at runtime - fetch() of a local
+// file fails under file://, so this must work when double-clicked from Finder too).
+var REPOS = [
+  {
+    "repo": "zigbee2mqtt",
+    "slug": "zigbee2mqtt",
+    "resolver": "npm",
+    "depth": "2",
+    "packages": 66,
+    "edges": 241,
+    "vulns": 18,
+    "seconds": 40.127,
+    "degenerate": false
+  },
+  {
+    "repo": "chirpstack",
+    "slug": "chirpstack",
+    "resolver": "cargo",
+    "depth": "2",
+    "packages": 4,
+    "edges": 6,
+    "vulns": 1,
+    "seconds": 4.557,
+    "degenerate": false
+  },
+  {
+    "repo": "thingsboard-gateway",
+    "slug": "thingsboard-gateway",
+    "resolver": "pip",
+    "depth": "2",
+    "packages": 32,
+    "edges": 43,
+    "vulns": 20,
+    "seconds": 12.99,
+    "degenerate": false
+  },
+  {
+    "repo": "esphome",
+    "slug": "esphome",
+    "resolver": "pip",
+    "depth": "2",
+    "packages": 68,
+    "edges": 104,
+    "vulns": 24,
+    "seconds": 23.473,
+    "degenerate": false
+  },
+  {
+    "repo": "openthread",
+    "slug": "openthread",
+    "resolver": "cmake",
+    "depth": "2",
+    "packages": 1,
+    "edges": 0,
+    "vulns": 0,
+    "seconds": 7.155,
+    "degenerate": true
+  },
+  {
+    "repo": "aws-iot-device-sdk-embedded-C",
+    "slug": "aws-iot-device-sdk-embedded-c",
+    "resolver": "cmake",
+    "depth": "2",
+    "packages": 1,
+    "edges": 0,
+    "vulns": 0,
+    "seconds": 1.231,
+    "degenerate": true
+  },
+  {
+    "repo": "azure-iot-sdk-c",
+    "slug": "azure-iot-sdk-c",
+    "resolver": "cmake",
+    "depth": "2",
+    "packages": 1,
+    "edges": 0,
+    "vulns": 0,
+    "seconds": 4.435,
+    "degenerate": true
+  },
+  {
+    "repo": "WLED",
+    "slug": "wled",
+    "resolver": "npm+pip",
+    "depth": "2",
+    "packages": 51,
+    "edges": 493,
+    "vulns": 28,
+    "seconds": 6.635,
+    "degenerate": false
+  },
+  {
+    "repo": "iotivity-lite",
+    "slug": "iotivity-lite",
+    "resolver": "cmake",
+    "depth": "2",
+    "packages": 1,
+    "edges": 0,
+    "vulns": 0,
+    "seconds": 33.75,
+    "degenerate": true
+  },
+  {
+    "repo": "Tasmota",
+    "slug": "tasmota",
+    "resolver": "cmake",
+    "depth": "2",
+    "packages": 1,
+    "edges": 0,
+    "vulns": 0,
+    "seconds": 4.421,
+    "degenerate": true
+  },
+  {
+    "repo": "OpenMQTTGateway",
+    "slug": "openmqttgateway",
+    "resolver": "npm",
+    "depth": "2",
+    "packages": 5,
+    "edges": 4,
+    "vulns": 0,
+    "seconds": 1.85,
+    "degenerate": false
+  },
+  {
+    "repo": "node-red",
+    "slug": "node-red",
+    "resolver": "npm",
+    "depth": "2",
+    "packages": 215,
+    "edges": 906,
+    "vulns": 69,
+    "seconds": 24.104,
+    "degenerate": false
+  },
+  {
+    "repo": "homebridge",
+    "slug": "homebridge",
+    "resolver": "npm",
+    "depth": "2",
+    "packages": 28,
+    "edges": 67,
+    "vulns": 0,
+    "seconds": 3.214,
+    "degenerate": false
+  },
+  {
+    "repo": "node-zwave-js",
+    "slug": "node-zwave-js",
+    "resolver": "npm",
+    "depth": "2",
+    "packages": 1,
+    "edges": 0,
+    "vulns": 0,
+    "seconds": 1.137,
+    "degenerate": true
+  },
+  {
+    "repo": "ioBroker.js-controller",
+    "slug": "iobroker-js-controller",
+    "resolver": "npm",
+    "depth": "2",
+    "packages": 48,
+    "edges": 729,
+    "vulns": 27,
+    "seconds": 7.701,
+    "degenerate": false
+  },
+  {
+    "repo": "paho.mqtt.python",
+    "slug": "paho-mqtt-python",
+    "resolver": "pip",
+    "depth": "2",
+    "packages": 1,
+    "edges": 0,
+    "vulns": 0,
+    "seconds": 2.763,
+    "degenerate": true
+  },
+  {
+    "repo": "aws-iot-device-sdk-python-v2",
+    "slug": "aws-iot-device-sdk-python-v2",
+    "resolver": "pip",
+    "depth": "2",
+    "packages": 2,
+    "edges": 1,
+    "vulns": 1,
+    "seconds": 3.67,
+    "degenerate": false
+  },
+  {
+    "repo": "azure-iot-sdk-python",
+    "slug": "azure-iot-sdk-python",
+    "resolver": "pip",
+    "depth": "2",
+    "packages": 13,
+    "edges": 17,
+    "vulns": 7,
+    "seconds": 5.367,
+    "degenerate": false
+  },
+  {
+    "repo": "platformio-core",
+    "slug": "platformio-core",
+    "resolver": "pip",
+    "depth": "2",
+    "packages": 22,
+    "edges": 24,
+    "vulns": 13,
+    "seconds": 6.057,
+    "degenerate": false
+  },
+  {
+    "repo": "core",
+    "slug": "core",
+    "resolver": "pip",
+    "depth": "2",
+    "packages": 78,
+    "edges": 188,
+    "vulns": 39,
+    "seconds": 105.813,
+    "degenerate": false
+  }
+];
 
-// initialize global variables.
-var edges;
-var nodes;
-var network;
-var container;
-var options, data;
+var NOT_PUBLISHED = {
+  "RIOT": "no resolver matched (NO-MATCH)",
+  "contiki-ng": "no resolver matched (NO-MATCH)",
+  "openhab-core": "no resolver matched (NO-MATCH)",
+  "android": "no resolver matched (NO-MATCH)",
+  "edgex-go": "HTML generation failed: FAILED (KeyError crash in graphs.py)"
+};
 
+var CAVEATS = [
+  "Docker was off for all runs (no container-layer dependencies resolved).",
+  "Dependency depth limit is 2 unless a graph's metadata says otherwise.",
+  "The HTML graph view carries no CVE identifiers &mdash; vulnerability counts are shown, not which CVEs.",
+  "\"Degenerate\" graphs (1 package, 0 edges) reflect a tool limitation in matching that resolver to that repo's manifest, not an empty dependency tree."
+];
 
-// This method is responsible for drawing the graph, returns the drawn network
-function drawGraph() {
-    var container = document.getElementById('mynetwork');
-
-    // parsing and collecting nodes and edges from the python
-    nodes = new vis.DataSet([{'id': 0, 'label': 'ubuntu:/lib/aarch64-linux-gnu/libbrotlicommon.so.1', 'level': 1}, {'id': 1, 'label': 'ubuntu:/lib/aarch64-linux-gnu/libbrotlidec.so.1', 'level': 1}, {'id': 2, 'label': 'ubuntu:/lib/aarch64-linux-gnu/libbrotlienc.so.1', 'level': 1}, {'id': 3, 'label': 'ubuntu:/lib/aarch64-linux-gnu/libc.so.6', 'level': 1}, {'id': 4, 'label': 'ubuntu:/lib/aarch64-linux-gnu/libcares.so.2', 'level': 1}, {'id': 5, 'label': 'ubuntu:/lib/aarch64-linux-gnu/libgcc_s.so.1', 'level': 1}, {'id': 6, 'label': 'ubuntu:/lib/aarch64-linux-gnu/libicudata.so.70', 'level': 1}, {'id': 7, 'label': 'ubuntu:/lib/aarch64-linux-gnu/libicui18n.so.70', 'level': 1}, {'id': 8, 'label': 'ubuntu:/lib/aarch64-linux-gnu/libicuuc.so.70', 'level': 1}, {'id': 9, 'label': 'ubuntu:/lib/aarch64-linux-gnu/libm.so.6', 'level': 1}, {'id': 10, 'label': 'ubuntu:/lib/aarch64-linux-gnu/libnghttp2.so.14', 'level': 1}, {'id': 11, 'label': 'ubuntu:/lib/aarch64-linux-gnu/libnode.so.72', 'level': 1}, {'id': 12, 'label': 'ubuntu:/lib/aarch64-linux-gnu/libtinfo.so.6', 'level': 1}, {'id': 13, 'label': 'ubuntu:/lib/aarch64-linux-gnu/libuv.so.1', 'level': 1}, {'id': 14, 'label': 'ubuntu:/lib/aarch64-linux-gnu/libz.so.1', 'level': 1}, {'id': 15, 'label': 'npm:ajv', 'level': 1}, {'id': 16, 'label': 'npm:bind-decorator', 'level': 1}, {'id': 17, 'label': 'npm:debounce', 'level': 1}, {'id': 18, 'label': 'npm:express-static-gzip', 'level': 1}, {'id': 19, 'label': 'npm:fast-deep-equal', 'level': 1}, {'id': 20, 'label': 'npm:fflate', 'level': 1}, {'id': 21, 'label': 'npm:finalhandler', 'level': 1}, {'id': 22, 'label': 'npm:humanize-duration', 'level': 1}, {'id': 23, 'label': 'npm:js-yaml', 'level': 1}, {'id': 24, 'label': 'npm:mqtt', 'level': 1}, {'id': 25, 'label': 'npm:object-assign-deep', 'level': 1}, {'id': 26, 'label': 'npm:semver', 'level': 1}, {'id': 27, 'label': 'npm:throttleit', 'level': 1}, {'id': 28, 'label': 'npm:winston', 'level': 1}, {'id': 29, 'label': 'npm:winston-syslog', 'level': 1}, {'id': 30, 'label': 'npm:winston-transport', 'level': 1}, {'id': 31, 'label': 'npm:ws', 'level': 1}, {'id': 32, 'label': 'npm:zigbee-herdsman', 'level': 1}, {'id': 33, 'label': 'npm:zigbee-herdsman-converters', 'level': 1}, {'id': 34, 'label': 'npm:zigbee2mqtt', 'shape': 'square', 'color': 'red', 'borderWidth': 4, 'level': 0}, {'id': 35, 'label': 'npm:zigbee2mqtt-frontend', 'level': 1}, {'id': 36, 'label': 'npm:zigbee2mqtt-windfront', 'level': 1}]);
-    edges = new vis.DataSet([{'from': 15, 'to': 5, 'shape': 'dot'}, {'from': 15, 'to': 2, 'shape': 'dot'}, {'from': 15, 'to': 4, 'shape': 'dot'}, {'from': 15, 'to': 12, 'shape': 'dot'}, {'from': 15, 'to': 14, 'shape': 'dot'}, {'from': 15, 'to': 9, 'shape': 'dot'}, {'from': 15, 'to': 19, 'shape': 'dot'}, {'from': 15, 'to': 0, 'shape': 'dot'}, {'from': 15, 'to': 3, 'shape': 'dot'}, {'from': 15, 'to': 13, 'shape': 'dot'}, {'from': 15, 'to': 11, 'shape': 'dot'}, {'from': 15, 'to': 8, 'shape': 'dot'}, {'from': 15, 'to': 7, 'shape': 'dot'}, {'from': 15, 'to': 10, 'shape': 'dot'}, {'from': 15, 'to': 1, 'shape': 'dot'}, {'from': 15, 'to': 6, 'shape': 'dot'}, {'from': 16, 'to': 6, 'shape': 'dot'}, {'from': 16, 'to': 11, 'shape': 'dot'}, {'from': 16, 'to': 5, 'shape': 'dot'}, {'from': 16, 'to': 8, 'shape': 'dot'}, {'from': 16, 'to': 10, 'shape': 'dot'}, {'from': 16, 'to': 12, 'shape': 'dot'}, {'from': 16, 'to': 9, 'shape': 'dot'}, {'from': 16, 'to': 2, 'shape': 'dot'}, {'from': 16, 'to': 14, 'shape': 'dot'}, {'from': 16, 'to': 1, 'shape': 'dot'}, {'from': 16, 'to': 4, 'shape': 'dot'}, {'from': 16, 'to': 3, 'shape': 'dot'}, {'from': 16, 'to': 7, 'shape': 'dot'}, {'from': 16, 'to': 13, 'shape': 'dot'}, {'from': 16, 'to': 0, 'shape': 'dot'}, {'from': 17, 'to': 6, 'shape': 'dot'}, {'from': 17, 'to': 11, 'shape': 'dot'}, {'from': 17, 'to': 5, 'shape': 'dot'}, {'from': 17, 'to': 8, 'shape': 'dot'}, {'from': 17, 'to': 10, 'shape': 'dot'}, {'from': 17, 'to': 12, 'shape': 'dot'}, {'from': 17, 'to': 9, 'shape': 'dot'}, {'from': 17, 'to': 2, 'shape': 'dot'}, {'from': 17, 'to': 14, 'shape': 'dot'}, {'from': 17, 'to': 1, 'shape': 'dot'}, {'from': 17, 'to': 4, 'shape': 'dot'}, {'from': 17, 'to': 3, 'shape': 'dot'}, {'from': 17, 'to': 7, 'shape': 'dot'}, {'from': 17, 'to': 13, 'shape': 'dot'}, {'from': 17, 'to': 0, 'shape': 'dot'}, {'from': 18, 'to': 5, 'shape': 'dot'}, {'from': 18, 'to': 2, 'shape': 'dot'}, {'from': 18, 'to': 4, 'shape': 'dot'}, {'from': 18, 'to': 12, 'shape': 'dot'}, {'from': 18, 'to': 14, 'shape': 'dot'}, {'from': 18, 'to': 9, 'shape': 'dot'}, {'from': 18, 'to': 0, 'shape': 'dot'}, {'from': 18, 'to': 3, 'shape': 'dot'}, {'from': 18, 'to': 13, 'shape': 'dot'}, {'from': 18, 'to': 11, 'shape': 'dot'}, {'from': 18, 'to': 8, 'shape': 'dot'}, {'from': 18, 'to': 7, 'shape': 'dot'}, {'from': 18, 'to': 10, 'shape': 'dot'}, {'from': 18, 'to': 1, 'shape': 'dot'}, {'from': 18, 'to': 6, 'shape': 'dot'}, {'from': 19, 'to': 6, 'shape': 'dot'}, {'from': 19, 'to': 11, 'shape': 'dot'}, {'from': 19, 'to': 5, 'shape': 'dot'}, {'from': 19, 'to': 8, 'shape': 'dot'}, {'from': 19, 'to': 10, 'shape': 'dot'}, {'from': 19, 'to': 12, 'shape': 'dot'}, {'from': 19, 'to': 9, 'shape': 'dot'}, {'from': 19, 'to': 2, 'shape': 'dot'}, {'from': 19, 'to': 14, 'shape': 'dot'}, {'from': 19, 'to': 1, 'shape': 'dot'}, {'from': 19, 'to': 4, 'shape': 'dot'}, {'from': 19, 'to': 3, 'shape': 'dot'}, {'from': 19, 'to': 7, 'shape': 'dot'}, {'from': 19, 'to': 13, 'shape': 'dot'}, {'from': 19, 'to': 0, 'shape': 'dot'}, {'from': 20, 'to': 6, 'shape': 'dot'}, {'from': 20, 'to': 11, 'shape': 'dot'}, {'from': 20, 'to': 5, 'shape': 'dot'}, {'from': 20, 'to': 8, 'shape': 'dot'}, {'from': 20, 'to': 10, 'shape': 'dot'}, {'from': 20, 'to': 12, 'shape': 'dot'}, {'from': 20, 'to': 9, 'shape': 'dot'}, {'from': 20, 'to': 2, 'shape': 'dot'}, {'from': 20, 'to': 14, 'shape': 'dot'}, {'from': 20, 'to': 1, 'shape': 'dot'}, {'from': 20, 'to': 4, 'shape': 'dot'}, {'from': 20, 'to': 3, 'shape': 'dot'}, {'from': 20, 'to': 7, 'shape': 'dot'}, {'from': 20, 'to': 13, 'shape': 'dot'}, {'from': 20, 'to': 0, 'shape': 'dot'}, {'from': 21, 'to': 5, 'shape': 'dot'}, {'from': 21, 'to': 2, 'shape': 'dot'}, {'from': 21, 'to': 4, 'shape': 'dot'}, {'from': 21, 'to': 12, 'shape': 'dot'}, {'from': 21, 'to': 14, 'shape': 'dot'}, {'from': 21, 'to': 9, 'shape': 'dot'}, {'from': 21, 'to': 0, 'shape': 'dot'}, {'from': 21, 'to': 3, 'shape': 'dot'}, {'from': 21, 'to': 13, 'shape': 'dot'}, {'from': 21, 'to': 11, 'shape': 'dot'}, {'from': 21, 'to': 8, 'shape': 'dot'}, {'from': 21, 'to': 7, 'shape': 'dot'}, {'from': 21, 'to': 10, 'shape': 'dot'}, {'from': 21, 'to': 1, 'shape': 'dot'}, {'from': 21, 'to': 6, 'shape': 'dot'}, {'from': 22, 'to': 6, 'shape': 'dot'}, {'from': 22, 'to': 11, 'shape': 'dot'}, {'from': 22, 'to': 5, 'shape': 'dot'}, {'from': 22, 'to': 8, 'shape': 'dot'}, {'from': 22, 'to': 10, 'shape': 'dot'}, {'from': 22, 'to': 12, 'shape': 'dot'}, {'from': 22, 'to': 9, 'shape': 'dot'}, {'from': 22, 'to': 2, 'shape': 'dot'}, {'from': 22, 'to': 14, 'shape': 'dot'}, {'from': 22, 'to': 1, 'shape': 'dot'}, {'from': 22, 'to': 4, 'shape': 'dot'}, {'from': 22, 'to': 3, 'shape': 'dot'}, {'from': 22, 'to': 7, 'shape': 'dot'}, {'from': 22, 'to': 13, 'shape': 'dot'}, {'from': 22, 'to': 0, 'shape': 'dot'}, {'from': 23, 'to': 6, 'shape': 'dot'}, {'from': 23, 'to': 11, 'shape': 'dot'}, {'from': 23, 'to': 5, 'shape': 'dot'}, {'from': 23, 'to': 8, 'shape': 'dot'}, {'from': 23, 'to': 2, 'shape': 'dot'}, {'from': 23, 'to': 4, 'shape': 'dot'}, {'from': 23, 'to': 7, 'shape': 'dot'}, {'from': 23, 'to': 12, 'shape': 'dot'}, {'from': 23, 'to': 14, 'shape': 'dot'}, {'from': 23, 'to': 10, 'shape': 'dot'}, {'from': 23, 'to': 9, 'shape': 'dot'}, {'from': 23, 'to': 1, 'shape': 'dot'}, {'from': 23, 'to': 3, 'shape': 'dot'}, {'from': 23, 'to': 13, 'shape': 'dot'}, {'from': 23, 'to': 0, 'shape': 'dot'}, {'from': 24, 'to': 5, 'shape': 'dot'}, {'from': 24, 'to': 2, 'shape': 'dot'}, {'from': 24, 'to': 4, 'shape': 'dot'}, {'from': 24, 'to': 12, 'shape': 'dot'}, {'from': 24, 'to': 14, 'shape': 'dot'}, {'from': 24, 'to': 9, 'shape': 'dot'}, {'from': 24, 'to': 0, 'shape': 'dot'}, {'from': 24, 'to': 3, 'shape': 'dot'}, {'from': 24, 'to': 13, 'shape': 'dot'}, {'from': 24, 'to': 11, 'shape': 'dot'}, {'from': 24, 'to': 31, 'shape': 'dot'}, {'from': 24, 'to': 8, 'shape': 'dot'}, {'from': 24, 'to': 7, 'shape': 'dot'}, {'from': 24, 'to': 10, 'shape': 'dot'}, {'from': 24, 'to': 1, 'shape': 'dot'}, {'from': 24, 'to': 6, 'shape': 'dot'}, {'from': 25, 'to': 6, 'shape': 'dot'}, {'from': 25, 'to': 11, 'shape': 'dot'}, {'from': 25, 'to': 5, 'shape': 'dot'}, {'from': 25, 'to': 8, 'shape': 'dot'}, {'from': 25, 'to': 10, 'shape': 'dot'}, {'from': 25, 'to': 12, 'shape': 'dot'}, {'from': 25, 'to': 9, 'shape': 'dot'}, {'from': 25, 'to': 2, 'shape': 'dot'}, {'from': 25, 'to': 14, 'shape': 'dot'}, {'from': 25, 'to': 1, 'shape': 'dot'}, {'from': 25, 'to': 4, 'shape': 'dot'}, {'from': 25, 'to': 3, 'shape': 'dot'}, {'from': 25, 'to': 7, 'shape': 'dot'}, {'from': 25, 'to': 13, 'shape': 'dot'}, {'from': 25, 'to': 0, 'shape': 'dot'}, {'from': 26, 'to': 6, 'shape': 'dot'}, {'from': 26, 'to': 11, 'shape': 'dot'}, {'from': 26, 'to': 5, 'shape': 'dot'}, {'from': 26, 'to': 8, 'shape': 'dot'}, {'from': 26, 'to': 10, 'shape': 'dot'}, {'from': 26, 'to': 12, 'shape': 'dot'}, {'from': 26, 'to': 9, 'shape': 'dot'}, {'from': 26, 'to': 2, 'shape': 'dot'}, {'from': 26, 'to': 14, 'shape': 'dot'}, {'from': 26, 'to': 1, 'shape': 'dot'}, {'from': 26, 'to': 4, 'shape': 'dot'}, {'from': 26, 'to': 3, 'shape': 'dot'}, {'from': 26, 'to': 7, 'shape': 'dot'}, {'from': 26, 'to': 13, 'shape': 'dot'}, {'from': 26, 'to': 0, 'shape': 'dot'}, {'from': 27, 'to': 6, 'shape': 'dot'}, {'from': 27, 'to': 11, 'shape': 'dot'}, {'from': 27, 'to': 5, 'shape': 'dot'}, {'from': 27, 'to': 8, 'shape': 'dot'}, {'from': 27, 'to': 10, 'shape': 'dot'}, {'from': 27, 'to': 12, 'shape': 'dot'}, {'from': 27, 'to': 9, 'shape': 'dot'}, {'from': 27, 'to': 2, 'shape': 'dot'}, {'from': 27, 'to': 14, 'shape': 'dot'}, {'from': 27, 'to': 1, 'shape': 'dot'}, {'from': 27, 'to': 4, 'shape': 'dot'}, {'from': 27, 'to': 3, 'shape': 'dot'}, {'from': 27, 'to': 7, 'shape': 'dot'}, {'from': 27, 'to': 13, 'shape': 'dot'}, {'from': 27, 'to': 0, 'shape': 'dot'}, {'from': 28, 'to': 5, 'shape': 'dot'}, {'from': 28, 'to': 2, 'shape': 'dot'}, {'from': 28, 'to': 4, 'shape': 'dot'}, {'from': 28, 'to': 12, 'shape': 'dot'}, {'from': 28, 'to': 14, 'shape': 'dot'}, {'from': 28, 'to': 9, 'shape': 'dot'}, {'from': 28, 'to': 0, 'shape': 'dot'}, {'from': 28, 'to': 3, 'shape': 'dot'}, {'from': 28, 'to': 13, 'shape': 'dot'}, {'from': 28, 'to': 11, 'shape': 'dot'}, {'from': 28, 'to': 8, 'shape': 'dot'}, {'from': 28, 'to': 30, 'shape': 'dot'}, {'from': 28, 'to': 7, 'shape': 'dot'}, {'from': 28, 'to': 10, 'shape': 'dot'}, {'from': 28, 'to': 1, 'shape': 'dot'}, {'from': 28, 'to': 6, 'shape': 'dot'}, {'from': 29, 'to': 5, 'shape': 'dot'}, {'from': 29, 'to': 2, 'shape': 'dot'}, {'from': 29, 'to': 4, 'shape': 'dot'}, {'from': 29, 'to': 12, 'shape': 'dot'}, {'from': 29, 'to': 14, 'shape': 'dot'}, {'from': 29, 'to': 9, 'shape': 'dot'}, {'from': 29, 'to': 0, 'shape': 'dot'}, {'from': 29, 'to': 3, 'shape': 'dot'}, {'from': 29, 'to': 13, 'shape': 'dot'}, {'from': 29, 'to': 11, 'shape': 'dot'}, {'from': 29, 'to': 8, 'shape': 'dot'}, {'from': 29, 'to': 7, 'shape': 'dot'}, {'from': 29, 'to': 10, 'shape': 'dot'}, {'from': 29, 'to': 1, 'shape': 'dot'}, {'from': 29, 'to': 30, 'shape': 'dot'}, {'from': 29, 'to': 6, 'shape': 'dot'}, {'from': 30, 'to': 5, 'shape': 'dot'}, {'from': 30, 'to': 2, 'shape': 'dot'}, {'from': 30, 'to': 4, 'shape': 'dot'}, {'from': 30, 'to': 12, 'shape': 'dot'}, {'from': 30, 'to': 14, 'shape': 'dot'}, {'from': 30, 'to': 9, 'shape': 'dot'}, {'from': 30, 'to': 0, 'shape': 'dot'}, {'from': 30, 'to': 3, 'shape': 'dot'}, {'from': 30, 'to': 13, 'shape': 'dot'}, {'from': 30, 'to': 11, 'shape': 'dot'}, {'from': 30, 'to': 8, 'shape': 'dot'}, {'from': 30, 'to': 7, 'shape': 'dot'}, {'from': 30, 'to': 10, 'shape': 'dot'}, {'from': 30, 'to': 1, 'shape': 'dot'}, {'from': 30, 'to': 6, 'shape': 'dot'}, {'from': 31, 'to': 6, 'shape': 'dot'}, {'from': 31, 'to': 11, 'shape': 'dot'}, {'from': 31, 'to': 5, 'shape': 'dot'}, {'from': 31, 'to': 8, 'shape': 'dot'}, {'from': 31, 'to': 2, 'shape': 'dot'}, {'from': 31, 'to': 4, 'shape': 'dot'}, {'from': 31, 'to': 7, 'shape': 'dot'}, {'from': 31, 'to': 12, 'shape': 'dot'}, {'from': 31, 'to': 14, 'shape': 'dot'}, {'from': 31, 'to': 10, 'shape': 'dot'}, {'from': 31, 'to': 9, 'shape': 'dot'}, {'from': 31, 'to': 1, 'shape': 'dot'}, {'from': 31, 'to': 3, 'shape': 'dot'}, {'from': 31, 'to': 13, 'shape': 'dot'}, {'from': 31, 'to': 0, 'shape': 'dot'}, {'from': 32, 'to': 5, 'shape': 'dot'}, {'from': 32, 'to': 2, 'shape': 'dot'}, {'from': 32, 'to': 4, 'shape': 'dot'}, {'from': 32, 'to': 12, 'shape': 'dot'}, {'from': 32, 'to': 14, 'shape': 'dot'}, {'from': 32, 'to': 9, 'shape': 'dot'}, {'from': 32, 'to': 19, 'shape': 'dot'}, {'from': 32, 'to': 0, 'shape': 'dot'}, {'from': 32, 'to': 3, 'shape': 'dot'}, {'from': 32, 'to': 13, 'shape': 'dot'}, {'from': 32, 'to': 11, 'shape': 'dot'}, {'from': 32, 'to': 8, 'shape': 'dot'}, {'from': 32, 'to': 7, 'shape': 'dot'}, {'from': 32, 'to': 10, 'shape': 'dot'}, {'from': 32, 'to': 1, 'shape': 'dot'}, {'from': 32, 'to': 17, 'shape': 'dot'}, {'from': 32, 'to': 6, 'shape': 'dot'}, {'from': 33, 'to': 5, 'shape': 'dot'}, {'from': 33, 'to': 2, 'shape': 'dot'}, {'from': 33, 'to': 26, 'shape': 'dot'}, {'from': 33, 'to': 4, 'shape': 'dot'}, {'from': 33, 'to': 12, 'shape': 'dot'}, {'from': 33, 'to': 14, 'shape': 'dot'}, {'from': 33, 'to': 9, 'shape': 'dot'}, {'from': 33, 'to': 0, 'shape': 'dot'}, {'from': 33, 'to': 3, 'shape': 'dot'}, {'from': 33, 'to': 13, 'shape': 'dot'}, {'from': 33, 'to': 11, 'shape': 'dot'}, {'from': 33, 'to': 8, 'shape': 'dot'}, {'from': 33, 'to': 32, 'shape': 'dot'}, {'from': 33, 'to': 7, 'shape': 'dot'}, {'from': 33, 'to': 10, 'shape': 'dot'}, {'from': 33, 'to': 1, 'shape': 'dot'}, {'from': 33, 'to': 6, 'shape': 'dot'}, {'from': 34, 'to': 11, 'shape': 'dot'}, {'from': 34, 'to': 5, 'shape': 'dot'}, {'from': 34, 'to': 28, 'shape': 'dot'}, {'from': 34, 'to': 29, 'shape': 'dot'}, {'from': 34, 'to': 8, 'shape': 'dot'}, {'from': 34, 'to': 20, 'shape': 'dot'}, {'from': 34, 'to': 21, 'shape': 'dot'}, {'from': 34, 'to': 32, 'shape': 'dot'}, {'from': 34, 'to': 23, 'shape': 'dot'}, {'from': 34, 'to': 25, 'shape': 'dot'}, {'from': 34, 'to': 36, 'shape': 'dot'}, {'from': 34, 'to': 2, 'shape': 'dot'}, {'from': 34, 'to': 18, 'shape': 'dot'}, {'from': 34, 'to': 26, 'shape': 'dot'}, {'from': 34, 'to': 30, 'shape': 'dot'}, {'from': 34, 'to': 4, 'shape': 'dot'}, {'from': 34, 'to': 31, 'shape': 'dot'}, {'from': 34, 'to': 7, 'shape': 'dot'}, {'from': 34, 'to': 3, 'shape': 'dot'}, {'from': 34, 'to': 12, 'shape': 'dot'}, {'from': 34, 'to': 27, 'shape': 'dot'}, {'from': 34, 'to': 22, 'shape': 'dot'}, {'from': 34, 'to': 15, 'shape': 'dot'}, {'from': 34, 'to': 14, 'shape': 'dot'}, {'from': 34, 'to': 16, 'shape': 'dot'}, {'from': 34, 'to': 10, 'shape': 'dot'}, {'from': 34, 'to': 9, 'shape': 'dot'}, {'from': 34, 'to': 19, 'shape': 'dot'}, {'from': 34, 'to': 1, 'shape': 'dot'}, {'from': 34, 'to': 33, 'shape': 'dot'}, {'from': 34, 'to': 0, 'shape': 'dot'}, {'from': 34, 'to': 17, 'shape': 'dot'}, {'from': 34, 'to': 35, 'shape': 'dot'}, {'from': 34, 'to': 24, 'shape': 'dot'}, {'from': 34, 'to': 13, 'shape': 'dot'}, {'from': 34, 'to': 6, 'shape': 'dot'}, {'from': 35, 'to': 6, 'shape': 'dot'}, {'from': 35, 'to': 11, 'shape': 'dot'}, {'from': 35, 'to': 5, 'shape': 'dot'}, {'from': 35, 'to': 8, 'shape': 'dot'}, {'from': 35, 'to': 10, 'shape': 'dot'}, {'from': 35, 'to': 12, 'shape': 'dot'}, {'from': 35, 'to': 9, 'shape': 'dot'}, {'from': 35, 'to': 2, 'shape': 'dot'}, {'from': 35, 'to': 14, 'shape': 'dot'}, {'from': 35, 'to': 1, 'shape': 'dot'}, {'from': 35, 'to': 4, 'shape': 'dot'}, {'from': 35, 'to': 3, 'shape': 'dot'}, {'from': 35, 'to': 7, 'shape': 'dot'}, {'from': 35, 'to': 13, 'shape': 'dot'}, {'from': 35, 'to': 0, 'shape': 'dot'}, {'from': 36, 'to': 6, 'shape': 'dot'}, {'from': 36, 'to': 11, 'shape': 'dot'}, {'from': 36, 'to': 5, 'shape': 'dot'}, {'from': 36, 'to': 8, 'shape': 'dot'}, {'from': 36, 'to': 10, 'shape': 'dot'}, {'from': 36, 'to': 12, 'shape': 'dot'}, {'from': 36, 'to': 9, 'shape': 'dot'}, {'from': 36, 'to': 2, 'shape': 'dot'}, {'from': 36, 'to': 14, 'shape': 'dot'}, {'from': 36, 'to': 1, 'shape': 'dot'}, {'from': 36, 'to': 4, 'shape': 'dot'}, {'from': 36, 'to': 3, 'shape': 'dot'}, {'from': 36, 'to': 7, 'shape': 'dot'}, {'from': 36, 'to': 13, 'shape': 'dot'}, {'from': 36, 'to': 0, 'shape': 'dot'}]);
-
-
-    // adding nodes and edges to the graph
-    data = {nodes: nodes, edges: edges};
-
-
-    const options = {
-        manipulation: false,
-        height: "90%",
-        physics: {
-            hierarchicalRepulsion: {
-              nodeDistance: 300,
-            },
-          },
-        edges: {
-            color: {
-                inherit: false
-            },
-            arrows: {
-                to: true,
-            },
-        },
-        layout: {
-            hierarchical: true
-        }
-    };
-
-
-
-    network = new vis.Network(container, data, options);
-    return network;
-
+function slugEsc(s) {
+  return String(s).replace(/[&<>"']/g, function(c) {
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+  });
 }
 
-drawGraph();
+function repoBySlug(slug) {
+  for (var i = 0; i < REPOS.length; i++) {
+    if (REPOS[i].slug === slug) return REPOS[i];
+  }
+  return null;
+}
 
+function badge(cls, text) {
+  return '<span class="badge ' + cls + '">' + text + '</span>';
+}
+
+function metaLine(r) {
+  return r.resolver + ' | depth ' + r.depth + ' | ' + r.packages + ' pkgs | ' +
+    r.edges + ' edges | ' + r.vulns + ' vulns | ' + r.seconds.toFixed(1) + 's';
+}
+
+function renderSidebar(filterText) {
+  var list = document.getElementById('repo-list');
+  list.innerHTML = '';
+
+  var ft = (filterText || '').toLowerCase();
+  var normal = [];
+  var degenerate = [];
+
+  REPOS.forEach(function(r) {
+    if (ft && r.repo.toLowerCase().indexOf(ft) === -1) return;
+    (r.degenerate ? degenerate : normal).push(r);
+  });
+
+  normal.sort(function(a, b) { return b.edges - a.edges; });
+  degenerate.sort(function(a, b) { return a.repo.localeCompare(b.repo); });
+
+  function makeRow(r) {
+    var a = document.createElement('a');
+    a.href = '#' + r.slug;
+    a.className = 'repo-row';
+    a.dataset.slug = r.slug;
+    var badges = '';
+    if (r.degenerate) badges += badge('badge-degenerate', 'degenerate');
+    if (r.vulns === 0) badges += badge('badge-vulns', '0 vulns');
+    a.innerHTML = '<div class="repo-name">' + slugEsc(r.repo) + badges + '</div>' +
+      '<div class="repo-meta">' + slugEsc(metaLine(r)) + '</div>';
+    return a;
+  }
+
+  normal.forEach(function(r) { list.appendChild(makeRow(r)); });
+
+  if (degenerate.length) {
+    var details = document.createElement('details');
+    details.className = 'group';
+    var summary = document.createElement('summary');
+    summary.textContent = 'Degenerate (no dependencies resolved) — ' + degenerate.length;
+    details.appendChild(summary);
+    degenerate.forEach(function(r) { details.appendChild(makeRow(r)); });
+    list.appendChild(details);
+  }
+
+  highlightActive();
+}
+
+function renderNotPublished() {
+  var el = document.getElementById('not-published');
+  var keys = Object.keys(NOT_PUBLISHED);
+  if (!keys.length) return;
+  var html = '<h2>Not published (' + keys.length + ')</h2><ul>';
+  keys.sort().forEach(function(k) {
+    html += '<li><strong>' + slugEsc(k) + '</strong>: ' + slugEsc(NOT_PUBLISHED[k]) + '</li>';
+  });
+  html += '</ul>';
+  el.innerHTML = html;
+}
+
+function highlightActive() {
+  var slug = currentSlug();
+  document.querySelectorAll('.repo-row').forEach(function(row) {
+    row.classList.toggle('active', row.dataset.slug === slug);
+  });
+}
+
+function currentSlug() {
+  return decodeURIComponent(location.hash.replace(/^#/, ''));
+}
+
+function renderLanding() {
+  var header = document.getElementById('header');
+  var frameWrap = document.getElementById('frame-wrap');
+  header.innerHTML = '';
+  var caveats = CAVEATS.map(function(c) { return '<li>' + c + '</li>'; }).join('');
+  frameWrap.innerHTML = '<div id="landing">' +
+    '<h2>It-Depends dependency graphs</h2>' +
+    '<p>This page is a static launcher for dependency graphs produced by ' +
+    'it-depends across a set of IoT-related open source repositories. ' +
+    'Pick a repo on the left to load its graph.</p>' +
+    '<p>Generated ' + slugEsc(GEN_DATE_JS) + ' &middot; it-depends v' + slugEsc(VERSION_JS) + ', Docker off.</p>' +
+    '<p><strong>Caveats:</strong></p>' +
+    '<ul>' + caveats + '</ul>' +
+    '</div>';
+}
+
+function renderRepo(r) {
+  var header = document.getElementById('header');
+  var frameWrap = document.getElementById('frame-wrap');
+
+  var badges = '';
+  if (r.degenerate) badges += badge('badge-degenerate', 'degenerate');
+  if (r.vulns === 0) badges += badge('badge-vulns', '0 vulns');
+
+  var links = '<a href="graphs/' + r.slug + '.html" target="_blank" rel="noopener">Open in new tab</a>';
+  links += '<a href="data/' + r.slug + '.json" download>Download JSON</a>';
+
+  var note = '';
+  if (r.degenerate) {
+    note = '<div id="note">it-depends matched a resolver but resolved no dependencies ' +
+      '&mdash; this is a tool limitation, not an empty project.</div>';
+  }
+
+  header.innerHTML =
+    '<h2>' + slugEsc(r.repo) + badges + '</h2>' +
+    '<div id="header-meta">' + slugEsc(metaLine(r)) + '</div>' +
+    '<div id="header-links">' + links + '</div>' +
+    note;
+
+  frameWrap.innerHTML = '<iframe src="graphs/' + r.slug + '.html" title="' +
+    slugEsc(r.repo) + ' dependency graph"></iframe>';
+}
+
+function route() {
+  var slug = currentSlug();
+  if (!slug) {
+    renderLanding();
+    highlightActive();
+    return;
+  }
+  var r = repoBySlug(slug);
+  if (!r) {
+    renderLanding();
+    highlightActive();
+    return;
+  }
+  renderRepo(r);
+  highlightActive();
+}
+
+var GEN_DATE_JS = "2026-08-06";
+var VERSION_JS = "0.2.1";
+
+document.getElementById('filter').addEventListener('input', function(e) {
+  renderSidebar(e.target.value);
+});
+
+window.addEventListener('hashchange', route);
+
+renderSidebar('');
+renderNotPublished();
+route();
 </script>
 </body>
 </html>

@@ -1,0 +1,33 @@
+{
+    "pip:awscrt": {
+        "0.36.1": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "awscrt",
+            "source": "pip",
+            "version": "0.36.1",
+            "vulnerabilities": []
+        }
+    },
+    "pip:awsiotsdk": {
+        "1.0.0+dev0": {
+            "dependencies": {
+                "pip:awscrt": "==0.36.1"
+            },
+            "is_source_package": true,
+            "name": "awsiotsdk",
+            "source": "pip",
+            "version": "1.0.0+dev0",
+            "vulnerabilities": [
+                "GHSA-c4rh-4376-gff4 (CVE-2021-40830, PYSEC-2021-863)",
+                "PYSEC-2021-863 (CVE-2021-40830, GHSA-c4rh-4376-gff4)",
+                "GHSA-94jq-q5v2-76wj (CVE-2021-40828, PYSEC-2021-861)",
+                "GHSA-743r-5g92-5vgf (CVE-2021-40829, PYSEC-2021-862)",
+                "PYSEC-2021-862 (CVE-2021-40829, GHSA-743r-5g92-5vgf)",
+                "PYSEC-2021-861 (CVE-2021-40828, GHSA-94jq-q5v2-76wj)",
+                "GHSA-j3f7-7rmc-6wqj (CVE-2021-40831, PYSEC-2021-864)",
+                "PYSEC-2021-864 (CVE-2021-40831, GHSA-j3f7-7rmc-6wqj)"
+            ]
+        }
+    }
+}

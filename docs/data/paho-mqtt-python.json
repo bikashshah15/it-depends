@@ -1,0 +1,12 @@
+{
+    "pip:paho-mqtt": {
+        "2.1.1+dev0": {
+            "dependencies": {},
+            "is_source_package": true,
+            "name": "paho-mqtt",
+            "source": "pip",
+            "version": "2.1.1+dev0",
+            "vulnerabilities": []
+        }
+    }
+}

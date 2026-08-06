@@ -1,0 +1,78 @@
+<html>
+<head>
+<title>It-Depends | Dependency Graph for npm:iobroker.js-controller-mono</title>
+<style type="text/css">
+mynetwork {
+    width: 100%;
+    height: 100%;
+    border: 1px solid lightgray;
+}
+</style>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+<center>
+<h1>Dependency Graph for npm:iobroker.js-controller-mono</h1>
+</center>
+</head>
+
+
+<body>
+<div id = "mynetwork"></div>
+
+<script type="text/javascript">
+
+// initialize global variables.
+var edges;
+var nodes;
+var network;
+var container;
+var options, data;
+
+
+// This method is responsible for drawing the graph, returns the drawn network
+function drawGraph() {
+    var container = document.getElementById('mynetwork');
+
+    // parsing and collecting nodes and edges from the python
+    nodes = new vis.DataSet([{'id': 0, 'label': 'npm:@alcalzone/esbuild-register', 'level': 2}, {'id': 1, 'label': 'npm:@alcalzone/jsonl-db', 'level': 2}, {'id': 2, 'label': 'npm:@alcalzone/pak', 'level': 2}, {'id': 3, 'label': 'npm:@iobroker/db-base', 'level': 1}, {'id': 4, 'label': 'npm:@iobroker/db-objects-file', 'level': 1}, {'id': 5, 'label': 'npm:@iobroker/db-objects-jsonl', 'level': 1}, {'id': 6, 'label': 'npm:@iobroker/db-objects-redis', 'level': 1}, {'id': 7, 'label': 'npm:@iobroker/db-states-file', 'level': 1}, {'id': 8, 'label': 'npm:@iobroker/db-states-jsonl', 'level': 1}, {'id': 9, 'label': 'npm:@iobroker/db-states-redis', 'level': 1}, {'id': 10, 'label': 'npm:@iobroker/js-controller-adapter', 'level': 1}, {'id': 11, 'label': 'npm:@iobroker/js-controller-cli', 'level': 1}, {'id': 12, 'label': 'npm:@iobroker/js-controller-common', 'level': 1}, {'id': 13, 'label': 'npm:@iobroker/js-controller-common-db', 'level': 1}, {'id': 14, 'label': 'npm:@iobroker/plugin-base', 'level': 2}, {'id': 15, 'label': 'npm:@iobroker/plugin-sentry', 'level': 2}, {'id': 16, 'label': 'npm:axios', 'level': 2}, {'id': 17, 'label': 'npm:chokidar', 'level': 2}, {'id': 18, 'label': 'npm:ci-info', 'level': 2}, {'id': 19, 'label': 'npm:cron-parser', 'level': 2}, {'id': 20, 'label': 'npm:debug', 'level': 2}, {'id': 21, 'label': 'npm:decache', 'level': 2}, {'id': 22, 'label': 'npm:deep-clone', 'level': 2}, {'id': 23, 'label': 'npm:event-stream', 'level': 2}, {'id': 24, 'label': 'npm:fs-extra', 'level': 2}, {'id': 25, 'label': 'npm:iobroker.js-controller', 'level': 1}, {'id': 26, 'label': 'npm:iobroker.js-controller-mono', 'shape': 'square', 'color': 'red', 'borderWidth': 4, 'level': 0}, {'id': 27, 'label': 'npm:ioredis', 'level': 2}, {'id': 28, 'label': 'npm:jsonwebtoken', 'level': 2}, {'id': 29, 'label': 'npm:jszip', 'level': 2}, {'id': 30, 'label': 'npm:loadavg-windows', 'level': 2}, {'id': 31, 'label': 'npm:mime-types', 'level': 2}, {'id': 32, 'label': 'npm:node-forge', 'level': 2}, {'id': 33, 'label': 'npm:node-schedule', 'level': 2}, {'id': 34, 'label': 'npm:node.extend', 'level': 2}, {'id': 35, 'label': 'npm:pidusage', 'level': 2}, {'id': 36, 'label': 'npm:promisify-child-process', 'level': 2}, {'id': 37, 'label': 'npm:prompt', 'level': 2}, {'id': 38, 'label': 'npm:readline', 'color': 'red', 'level': 2}, {'id': 39, 'label': 'npm:readline-sync', 'level': 2}, {'id': 40, 'label': 'npm:respjs', 'level': 2}, {'id': 41, 'label': 'npm:semver', 'level': 2}, {'id': 42, 'label': 'npm:tar', 'level': 2}, {'id': 43, 'label': 'npm:triple-beam', 'level': 2}, {'id': 44, 'label': 'npm:winston', 'level': 2}, {'id': 45, 'label': 'npm:winston-daily-rotate-file', 'level': 2}, {'id': 46, 'label': 'npm:winston-transport', 'level': 2}, {'id': 47, 'label': 'npm:yargs', 'level': 2}]);
+    edges = new vis.DataSet([{'from': 1, 'to': 24, 'shape': 'dot'}, {'from': 2, 'to': 16, 'shape': 'dot'}, {'from': 2, 'to': 41, 'shape': 'dot'}, {'from': 2, 'to': 24, 'shape': 'dot'}, {'from': 3, 'to': 40, 'shape': 'dot'}, {'from': 3, 'to': 13, 'shape': 'dot'}, {'from': 3, 'to': 24, 'shape': 'dot'}, {'from': 3, 'to': 22, 'shape': 'dot'}, {'from': 4, 'to': 24, 'shape': 'dot'}, {'from': 4, 'to': 22, 'shape': 'dot'}, {'from': 4, 'to': 3, 'shape': 'dot'}, {'from': 4, 'to': 6, 'shape': 'dot'}, {'from': 5, 'to': 1, 'shape': 'dot'}, {'from': 5, 'to': 24, 'shape': 'dot'}, {'from': 5, 'to': 22, 'shape': 'dot'}, {'from': 5, 'to': 4, 'shape': 'dot'}, {'from': 5, 'to': 3, 'shape': 'dot'}, {'from': 5, 'to': 6, 'shape': 'dot'}, {'from': 6, 'to': 41, 'shape': 'dot'}, {'from': 6, 'to': 22, 'shape': 'dot'}, {'from': 6, 'to': 34, 'shape': 'dot'}, {'from': 6, 'to': 27, 'shape': 'dot'}, {'from': 6, 'to': 31, 'shape': 'dot'}, {'from': 6, 'to': 3, 'shape': 'dot'}, {'from': 7, 'to': 9, 'shape': 'dot'}, {'from': 7, 'to': 3, 'shape': 'dot'}, {'from': 8, 'to': 1, 'shape': 'dot'}, {'from': 8, 'to': 7, 'shape': 'dot'}, {'from': 8, 'to': 9, 'shape': 'dot'}, {'from': 8, 'to': 3, 'shape': 'dot'}, {'from': 9, 'to': 3, 'shape': 'dot'}, {'from': 9, 'to': 27, 'shape': 'dot'}, {'from': 10, 'to': 7, 'shape': 'dot'}, {'from': 10, 'to': 14, 'shape': 'dot'}, {'from': 10, 'to': 13, 'shape': 'dot'}, {'from': 10, 'to': 22, 'shape': 'dot'}, {'from': 10, 'to': 28, 'shape': 'dot'}, {'from': 10, 'to': 2, 'shape': 'dot'}, {'from': 10, 'to': 33, 'shape': 'dot'}, {'from': 10, 'to': 12, 'shape': 'dot'}, {'from': 10, 'to': 24, 'shape': 'dot'}, {'from': 10, 'to': 4, 'shape': 'dot'}, {'from': 10, 'to': 8, 'shape': 'dot'}, {'from': 10, 'to': 35, 'shape': 'dot'}, {'from': 10, 'to': 41, 'shape': 'dot'}, {'from': 10, 'to': 5, 'shape': 'dot'}, {'from': 10, 'to': 34, 'shape': 'dot'}, {'from': 10, 'to': 6, 'shape': 'dot'}, {'from': 10, 'to': 38, 'shape': 'dot'}, {'from': 10, 'to': 9, 'shape': 'dot'}, {'from': 10, 'to': 47, 'shape': 'dot'}, {'from': 11, 'to': 41, 'shape': 'dot'}, {'from': 11, 'to': 16, 'shape': 'dot'}, {'from': 11, 'to': 14, 'shape': 'dot'}, {'from': 11, 'to': 13, 'shape': 'dot'}, {'from': 11, 'to': 22, 'shape': 'dot'}, {'from': 11, 'to': 47, 'shape': 'dot'}, {'from': 11, 'to': 36, 'shape': 'dot'}, {'from': 11, 'to': 17, 'shape': 'dot'}, {'from': 11, 'to': 42, 'shape': 'dot'}, {'from': 11, 'to': 20, 'shape': 'dot'}, {'from': 11, 'to': 23, 'shape': 'dot'}, {'from': 11, 'to': 12, 'shape': 'dot'}, {'from': 11, 'to': 24, 'shape': 'dot'}, {'from': 11, 'to': 39, 'shape': 'dot'}, {'from': 11, 'to': 31, 'shape': 'dot'}, {'from': 12, 'to': 5, 'shape': 'dot'}, {'from': 12, 'to': 7, 'shape': 'dot'}, {'from': 12, 'to': 13, 'shape': 'dot'}, {'from': 12, 'to': 24, 'shape': 'dot'}, {'from': 12, 'to': 4, 'shape': 'dot'}, {'from': 12, 'to': 9, 'shape': 'dot'}, {'from': 12, 'to': 29, 'shape': 'dot'}, {'from': 12, 'to': 8, 'shape': 'dot'}, {'from': 12, 'to': 6, 'shape': 'dot'}, {'from': 13, 'to': 41, 'shape': 'dot'}, {'from': 13, 'to': 16, 'shape': 'dot'}, {'from': 13, 'to': 44, 'shape': 'dot'}, {'from': 13, 'to': 22, 'shape': 'dot'}, {'from': 13, 'to': 34, 'shape': 'dot'}, {'from': 13, 'to': 28, 'shape': 'dot'}, {'from': 13, 'to': 23, 'shape': 'dot'}, {'from': 13, 'to': 36, 'shape': 'dot'}, {'from': 13, 'to': 46, 'shape': 'dot'}, {'from': 13, 'to': 2, 'shape': 'dot'}, {'from': 13, 'to': 18, 'shape': 'dot'}, {'from': 13, 'to': 38, 'shape': 'dot'}, {'from': 13, 'to': 24, 'shape': 'dot'}, {'from': 13, 'to': 32, 'shape': 'dot'}, {'from': 13, 'to': 45, 'shape': 'dot'}, {'from': 13, 'to': 43, 'shape': 'dot'}, {'from': 15, 'to': 14, 'shape': 'dot'}, {'from': 25, 'to': 7, 'shape': 'dot'}, {'from': 25, 'to': 14, 'shape': 'dot'}, {'from': 25, 'to': 0, 'shape': 'dot'}, {'from': 25, 'to': 30, 'shape': 'dot'}, {'from': 25, 'to': 13, 'shape': 'dot'}, {'from': 25, 'to': 22, 'shape': 'dot'}, {'from': 25, 'to': 28, 'shape': 'dot'}, {'from': 25, 'to': 20, 'shape': 'dot'}, {'from': 25, 'to': 37, 'shape': 'dot'}, {'from': 25, 'to': 35, 'shape': 'dot'}, {'from': 25, 'to': 19, 'shape': 'dot'}, {'from': 25, 'to': 12, 'shape': 'dot'}, {'from': 25, 'to': 24, 'shape': 'dot'}, {'from': 25, 'to': 4, 'shape': 'dot'}, {'from': 25, 'to': 8, 'shape': 'dot'}, {'from': 25, 'to': 41, 'shape': 'dot'}, {'from': 25, 'to': 5, 'shape': 'dot'}, {'from': 25, 'to': 33, 'shape': 'dot'}, {'from': 25, 'to': 15, 'shape': 'dot'}, {'from': 25, 'to': 36, 'shape': 'dot'}, {'from': 25, 'to': 10, 'shape': 'dot'}, {'from': 25, 'to': 16, 'shape': 'dot'}, {'from': 25, 'to': 6, 'shape': 'dot'}, {'from': 25, 'to': 11, 'shape': 'dot'}, {'from': 25, 'to': 21, 'shape': 'dot'}, {'from': 25, 'to': 39, 'shape': 'dot'}, {'from': 25, 'to': 9, 'shape': 'dot'}, {'from': 26, 'to': 8, 'shape': 'dot'}, {'from': 26, 'to': 10, 'shape': 'dot'}, {'from': 26, 'to': 3, 'shape': 'dot'}, {'from': 26, 'to': 6, 'shape': 'dot'}, {'from': 26, 'to': 5, 'shape': 'dot'}, {'from': 26, 'to': 11, 'shape': 'dot'}, {'from': 26, 'to': 7, 'shape': 'dot'}, {'from': 26, 'to': 25, 'shape': 'dot'}, {'from': 26, 'to': 13, 'shape': 'dot'}, {'from': 26, 'to': 12, 'shape': 'dot'}, {'from': 26, 'to': 4, 'shape': 'dot'}, {'from': 26, 'to': 9, 'shape': 'dot'}, {'from': 27, 'to': 20, 'shape': 'dot'}, {'from': 28, 'to': 41, 'shape': 'dot'}, {'from': 33, 'to': 19, 'shape': 'dot'}, {'from': 37, 'to': 44, 'shape': 'dot'}, {'from': 44, 'to': 46, 'shape': 'dot'}, {'from': 44, 'to': 43, 'shape': 'dot'}, {'from': 45, 'to': 46, 'shape': 'dot'}, {'from': 45, 'to': 43, 'shape': 'dot'}, {'from': 46, 'to': 43, 'shape': 'dot'}]);
+
+
+    // adding nodes and edges to the graph
+    data = {nodes: nodes, edges: edges};
+
+
+    const options = {
+        manipulation: false,
+        height: "90%",
+        physics: {
+            hierarchicalRepulsion: {
+              nodeDistance: 300,
+            },
+          },
+        edges: {
+            color: {
+                inherit: false
+            },
+            arrows: {
+                to: true,
+            },
+        },
+        layout: {
+            hierarchical: true
+        }
+    };
+
+
+
+    network = new vis.Network(container, data, options);
+    return network;
+
+}
+
+drawGraph();
+
+</script>
+</body>
+</html>

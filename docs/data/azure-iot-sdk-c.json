@@ -1,0 +1,12 @@
+{
+    "cmake:CMAKE_TRY_COMPILE": {
+        "0.0.0": {
+            "dependencies": {},
+            "is_source_package": true,
+            "name": "CMAKE_TRY_COMPILE",
+            "source": "cmake",
+            "version": "0.0.0",
+            "vulnerabilities": []
+        }
+    }
+}

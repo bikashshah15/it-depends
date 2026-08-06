@@ -1,0 +1,75 @@
+repo,resolver,depth,cache_state,format,seconds,exit_code,packages,edges,vulns,output_bytes,status
+zigbee2mqtt,npm,,cold,list,0.687,0,,,,,OK
+chirpstack,cargo,,cold,list,0.417,0,,,,,OK
+edgex-go,go,,cold,list,0.430,0,,,,,OK
+thingsboard-gateway,pip,,cold,list,0.414,0,,,,,OK
+esphome,pip,,cold,list,0.432,0,,,,,OK
+openthread,cmake,,cold,list,0.398,0,,,,,OK
+aws-iot-device-sdk-embedded-C,cmake,,cold,list,0.431,0,,,,,OK
+azure-iot-sdk-c,cmake,,cold,list,0.427,0,,,,,OK
+WLED,npm+pip,,cold,list,0.468,0,,,,,OK
+iotivity-lite,cmake,,cold,list,0.422,0,,,,,OK
+RIOT,none,,cold,list,0.407,0,,,,,NO-MATCH
+contiki-ng,none,,cold,list,0.418,0,,,,,NO-MATCH
+openhab-core,none,,cold,list,0.417,0,,,,,NO-MATCH
+android,none,,cold,list,0.445,0,,,,,NO-MATCH
+Tasmota,cmake,,cold,list,0.445,0,,,,,OK (unexpected match)
+OpenMQTTGateway,npm,,cold,list,0.404,0,,,,,OK (unexpected match)
+zigbee2mqtt,npm,2,cold,json,6.648,0,66,241,18,,OK (depth probe)
+chirpstack,cargo,2,cold,json,11.714,0,4,6,1,,OK (depth probe)
+edgex-go,go,2,cold,json,,143,,,,,FAILED (8min timeout, killed)
+zigbee2mqtt,npm,2,warm,html,40.127,0,66,241,18,8771,OK
+zigbee2mqtt,npm,2,warm,json,3.537,0,66,241,18,50294,OK
+zigbee2mqtt,npm,2,warm,cyclonedx,,143,,,,,FAILED (8min timeout, killed)
+chirpstack,cargo,2,warm,html,4.557,0,4,6,1,1974,OK
+chirpstack,cargo,2,warm,json,1.361,0,4,6,1,1436,OK
+chirpstack,cargo,2,warm,cyclonedx,6.709,0,,,,,FAILED (No SBOM found, exit 0 no output)
+edgex-go,go,1,cold,html,30.591,1,,,,,FAILED (KeyError crash in graphs.py)
+edgex-go,go,1,warm,json,2.509,0,118,1007,2,101085,OK
+thingsboard-gateway,pip,2,cold,html,12.990,0,32,43,20,4927,OK
+thingsboard-gateway,pip,2,warm,json,9.136,0,32,43,20,31120,OK
+thingsboard-gateway,pip,2,warm,cyclonedx,,143,,,,,FAILED (8min timeout, killed)
+esphome,pip,2,cold,html,23.473,0,68,104,24,8710,OK
+esphome,pip,2,warm,json,18.405,0,68,104,24,41336,OK
+openthread,cmake,2,cold,html,7.155,0,1,0,0,1673,OK (degenerate)
+openthread,cmake,2,warm,json,4.228,0,1,0,0,256,OK (degenerate)
+aws-iot-device-sdk-embedded-C,cmake,2,cold,html,1.231,0,1,0,0,1658,OK (degenerate)
+aws-iot-device-sdk-embedded-C,cmake,2,warm,json,0.691,0,1,0,0,246,OK (degenerate)
+azure-iot-sdk-c,cmake,2,cold,html,4.435,0,1,0,0,1709,OK (degenerate)
+azure-iot-sdk-c,cmake,2,warm,json,3.986,0,1,0,0,280,OK (degenerate)
+WLED,npm+pip,2,cold,html,6.635,0,51,493,28,7238,OK
+WLED,npm+pip,2,warm,json,4.235,0,51,493,28,85628,OK
+iotivity-lite,cmake,2,cold,html,33.750,0,1,0,0,1712,OK (degenerate)
+iotivity-lite,cmake,2,warm,json,26.848,0,1,0,0,282,OK (degenerate)
+Tasmota,cmake,2,cold,html,4.421,0,1,0,0,1709,OK (degenerate)
+Tasmota,cmake,2,warm,json,4.365,0,1,0,0,280,OK (degenerate)
+OpenMQTTGateway,npm,2,cold,html,1.850,0,5,4,0,2041,OK
+OpenMQTTGateway,npm,2,warm,json,0.733,0,5,4,0,2186,OK
+zigbee2mqtt,npm,1,cold,json,2.234,0,22,81,2,10356,OK (batch2 control: docker-off depth-1)
+node-red,npm,,cold,list,0.500,0,,,,,OK
+homebridge,npm,,cold,list,0.500,0,,,,,OK
+node-zwave-js,npm,,cold,list,0.500,0,,,,,OK
+ioBroker.js-controller,npm,,cold,list,0.500,0,,,,,OK
+paho.mqtt.python,pip,,cold,list,0.500,0,,,,,OK
+aws-iot-device-sdk-python-v2,pip,,cold,list,0.500,0,,,,,OK
+azure-iot-sdk-python,pip,,cold,list,0.500,0,,,,,OK
+platformio-core,pip,,cold,list,0.500,0,,,,,OK
+core,pip,,cold,list,0.500,0,,,,,OK
+node-red,npm,2,cold,html,24.104,0,215,906,69,32124,OK
+node-red,npm,2,warm,json,14.685,0,215,906,69,199016,OK
+homebridge,npm,2,cold,html,3.214,0,28,67,0,4770,OK (0 vulns)
+homebridge,npm,2,warm,json,1.301,0,28,67,0,15361,OK (0 vulns)
+node-zwave-js,npm,2,cold,html,1.137,0,1,0,0,1694,OK (degenerate - npm workspaces root has no dependencies key)
+node-zwave-js,npm,2,warm,json,0.575,0,1,0,0,274,OK (degenerate)
+ioBroker.js-controller,npm,2,cold,html,7.701,0,48,729,27,9900,OK
+ioBroker.js-controller,npm,2,warm,json,4.086,0,48,729,27,98393,OK
+paho.mqtt.python,pip,2,cold,html,2.763,0,1,0,0,1679,OK (degenerate - genuinely near-zero deps)
+paho.mqtt.python,pip,2,warm,json,1.840,0,1,0,0,270,OK (degenerate)
+aws-iot-device-sdk-python-v2,pip,2,cold,html,3.670,0,2,1,1,1761,OK
+aws-iot-device-sdk-python-v2,pip,2,warm,json,3.120,0,2,1,1,1167,OK
+azure-iot-sdk-python,pip,2,cold,html,5.367,0,13,17,7,2880,OK
+azure-iot-sdk-python,pip,2,warm,json,3.871,0,13,17,7,11266,OK
+platformio-core,pip,2,cold,html,6.057,0,22,24,13,3787,OK
+platformio-core,pip,2,warm,json,4.953,0,22,24,13,17998,OK
+core,pip,2,cold,json,41.616,0,78,188,39,87084,OK (optional 9th repo, user-approved, 15min hard timeout not hit)
+core,pip,2,warm,html,105.813,0,78,188,39,11031,OK

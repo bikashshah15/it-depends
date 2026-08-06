@@ -1,0 +1,12 @@
+{
+    "cmake:TCPlp": {
+        "0.0.0": {
+            "dependencies": {},
+            "is_source_package": true,
+            "name": "TCPlp",
+            "source": "cmake",
+            "version": "0.0.0",
+            "vulnerabilities": []
+        }
+    }
+}

@@ -1,0 +1,529 @@
+{
+    "npm:@homebridge/ciao": {
+        "1.3.10": {
+            "dependencies": {
+                "npm:debug": "^4.4.3",
+                "npm:fast-deep-equal": "^3.1.3",
+                "npm:source-map-support": "^0.5.21",
+                "npm:tslib": "^2.8.1"
+            },
+            "is_source_package": false,
+            "name": "@homebridge/ciao",
+            "source": "npm",
+            "version": "1.3.10",
+            "vulnerabilities": []
+        }
+    },
+    "npm:@homebridge/dbus-native": {
+        "0.7.7": {
+            "dependencies": {
+                "npm:event-stream": "^4.0.1",
+                "npm:hexy": "^0.4.0",
+                "npm:long": "^5.3.2",
+                "npm:minimist": "^1.2.8",
+                "npm:safe-buffer": "^5.1.2",
+                "npm:xml2js": "^0.6.2"
+            },
+            "is_source_package": false,
+            "name": "@homebridge/dbus-native",
+            "source": "npm",
+            "version": "0.7.7",
+            "vulnerabilities": []
+        },
+        "0.7.8": {
+            "dependencies": {
+                "npm:event-stream": "^4.0.1",
+                "npm:hexy": "^0.4.0",
+                "npm:long": "^5.3.2",
+                "npm:minimist": "^1.2.8",
+                "npm:safe-buffer": "^5.1.2",
+                "npm:xml2js": "^0.6.2"
+            },
+            "is_source_package": false,
+            "name": "@homebridge/dbus-native",
+            "source": "npm",
+            "version": "0.7.8",
+            "vulnerabilities": []
+        }
+    },
+    "npm:@homebridge/hap-nodejs": {
+        "2.1.9": {
+            "dependencies": {
+                "npm:@homebridge/ciao": "^1.3.10",
+                "npm:@homebridge/dbus-native": "^0.7.7",
+                "npm:bonjour-hap": "^3.10.4",
+                "npm:debug": "^4.4.3",
+                "npm:fast-srp-hap": "^2.0.4",
+                "npm:futoin-hkdf": "^1.5.3",
+                "npm:node-persist": "^0.0.12",
+                "npm:source-map-support": "^0.5.21",
+                "npm:tslib": "^2.8.1",
+                "npm:tweetnacl": "^1.0.3"
+            },
+            "is_source_package": false,
+            "name": "@homebridge/hap-nodejs",
+            "source": "npm",
+            "version": "2.1.9",
+            "vulnerabilities": []
+        }
+    },
+    "npm:@matter/general": {
+        "0.17.6": {
+            "dependencies": {
+                "npm:@noble/curves": "^2.2.0"
+            },
+            "is_source_package": false,
+            "name": "@matter/general",
+            "source": "npm",
+            "version": "0.17.6",
+            "vulnerabilities": []
+        }
+    },
+    "npm:@matter/main": {
+        "0.17.6": {
+            "dependencies": {
+                "npm:@matter/general": "0.17.6",
+                "npm:@matter/model": "0.17.6",
+                "npm:@matter/node": "0.17.6",
+                "npm:@matter/protocol": "0.17.6",
+                "npm:@matter/types": "0.17.6"
+            },
+            "is_source_package": false,
+            "name": "@matter/main",
+            "source": "npm",
+            "version": "0.17.6",
+            "vulnerabilities": []
+        }
+    },
+    "npm:@matter/model": {
+        "0.17.6": {
+            "dependencies": {
+                "npm:@matter/general": "0.17.6"
+            },
+            "is_source_package": false,
+            "name": "@matter/model",
+            "source": "npm",
+            "version": "0.17.6",
+            "vulnerabilities": []
+        }
+    },
+    "npm:@matter/node": {
+        "0.17.6": {
+            "dependencies": {
+                "npm:@matter/general": "0.17.6",
+                "npm:@matter/model": "0.17.6",
+                "npm:@matter/protocol": "0.17.6",
+                "npm:@matter/types": "0.17.6"
+            },
+            "is_source_package": false,
+            "name": "@matter/node",
+            "source": "npm",
+            "version": "0.17.6",
+            "vulnerabilities": []
+        }
+    },
+    "npm:@matter/protocol": {
+        "0.17.6": {
+            "dependencies": {
+                "npm:@matter/general": "0.17.6",
+                "npm:@matter/model": "0.17.6",
+                "npm:@matter/types": "0.17.6"
+            },
+            "is_source_package": false,
+            "name": "@matter/protocol",
+            "source": "npm",
+            "version": "0.17.6",
+            "vulnerabilities": []
+        }
+    },
+    "npm:@matter/types": {
+        "0.17.6": {
+            "dependencies": {
+                "npm:@matter/general": "0.17.6",
+                "npm:@matter/model": "0.17.6"
+            },
+            "is_source_package": false,
+            "name": "@matter/types",
+            "source": "npm",
+            "version": "0.17.6",
+            "vulnerabilities": []
+        }
+    },
+    "npm:bonjour-hap": {
+        "3.10.4": {
+            "dependencies": {
+                "npm:fast-deep-equal": "^3.1.3",
+                "npm:multicast-dns": "^7.2.5",
+                "npm:multicast-dns-service-types": "^1.1.0"
+            },
+            "is_source_package": false,
+            "name": "bonjour-hap",
+            "source": "npm",
+            "version": "3.10.4",
+            "vulnerabilities": []
+        }
+    },
+    "npm:buffer-from": {
+        "1.0.0": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "buffer-from",
+            "source": "npm",
+            "version": "1.0.0",
+            "vulnerabilities": []
+        },
+        "1.1.0": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "buffer-from",
+            "source": "npm",
+            "version": "1.1.0",
+            "vulnerabilities": []
+        },
+        "1.1.1": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "buffer-from",
+            "source": "npm",
+            "version": "1.1.1",
+            "vulnerabilities": []
+        },
+        "1.1.2": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "buffer-from",
+            "source": "npm",
+            "version": "1.1.2",
+            "vulnerabilities": []
+        }
+    },
+    "npm:chalk": {
+        "5.6.2": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "chalk",
+            "source": "npm",
+            "version": "5.6.2",
+            "vulnerabilities": []
+        }
+    },
+    "npm:commander": {
+        "15.0.0": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "commander",
+            "source": "npm",
+            "version": "15.0.0",
+            "vulnerabilities": []
+        }
+    },
+    "npm:debug": {
+        "4.4.3": {
+            "dependencies": {
+                "npm:ms": "^2.1.3"
+            },
+            "is_source_package": false,
+            "name": "debug",
+            "source": "npm",
+            "version": "4.4.3",
+            "vulnerabilities": []
+        }
+    },
+    "npm:fast-srp-hap": {
+        "2.0.4": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "fast-srp-hap",
+            "source": "npm",
+            "version": "2.0.4",
+            "vulnerabilities": []
+        }
+    },
+    "npm:fs-extra": {
+        "11.3.6": {
+            "dependencies": {
+                "npm:graceful-fs": "^4.2.0",
+                "npm:jsonfile": "^6.0.1",
+                "npm:universalify": "^2.0.0"
+            },
+            "is_source_package": false,
+            "name": "fs-extra",
+            "source": "npm",
+            "version": "11.3.6",
+            "vulnerabilities": []
+        }
+    },
+    "npm:futoin-hkdf": {
+        "1.5.3": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "futoin-hkdf",
+            "source": "npm",
+            "version": "1.5.3",
+            "vulnerabilities": []
+        }
+    },
+    "npm:graceful-fs": {
+        "4.2.0": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "graceful-fs",
+            "source": "npm",
+            "version": "4.2.0",
+            "vulnerabilities": []
+        },
+        "4.2.1": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "graceful-fs",
+            "source": "npm",
+            "version": "4.2.1",
+            "vulnerabilities": []
+        },
+        "4.2.10": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "graceful-fs",
+            "source": "npm",
+            "version": "4.2.10",
+            "vulnerabilities": []
+        },
+        "4.2.11": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "graceful-fs",
+            "source": "npm",
+            "version": "4.2.11",
+            "vulnerabilities": []
+        },
+        "4.2.2": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "graceful-fs",
+            "source": "npm",
+            "version": "4.2.2",
+            "vulnerabilities": []
+        },
+        "4.2.3": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "graceful-fs",
+            "source": "npm",
+            "version": "4.2.3",
+            "vulnerabilities": []
+        },
+        "4.2.4": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "graceful-fs",
+            "source": "npm",
+            "version": "4.2.4",
+            "vulnerabilities": []
+        },
+        "4.2.5": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "graceful-fs",
+            "source": "npm",
+            "version": "4.2.5",
+            "vulnerabilities": []
+        },
+        "4.2.6": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "graceful-fs",
+            "source": "npm",
+            "version": "4.2.6",
+            "vulnerabilities": []
+        },
+        "4.2.7": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "graceful-fs",
+            "source": "npm",
+            "version": "4.2.7",
+            "vulnerabilities": []
+        },
+        "4.2.8": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "graceful-fs",
+            "source": "npm",
+            "version": "4.2.8",
+            "vulnerabilities": []
+        },
+        "4.2.9": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "graceful-fs",
+            "source": "npm",
+            "version": "4.2.9",
+            "vulnerabilities": []
+        }
+    },
+    "npm:homebridge": {
+        "2.2.1": {
+            "dependencies": {
+                "npm:@homebridge/hap-nodejs": "2.1.9",
+                "npm:@matter/main": "0.17.6",
+                "npm:chalk": "5.6.2",
+                "npm:commander": "15.0.0",
+                "npm:fs-extra": "11.3.6",
+                "npm:qrcode-terminal": "0.12.0",
+                "npm:semver": "7.8.5",
+                "npm:source-map-support": "0.5.21"
+            },
+            "is_source_package": true,
+            "name": "homebridge",
+            "source": "npm",
+            "version": "2.2.1",
+            "vulnerabilities": []
+        }
+    },
+    "npm:jsonfile": {
+        "6.0.1": {
+            "dependencies": {
+                "npm:graceful-fs": "^4.1.6",
+                "npm:universalify": "^1.0.0"
+            },
+            "is_source_package": false,
+            "name": "jsonfile",
+            "source": "npm",
+            "version": "6.0.1",
+            "vulnerabilities": []
+        },
+        "6.1.0": {
+            "dependencies": {
+                "npm:graceful-fs": "^4.1.6",
+                "npm:universalify": "^2.0.0"
+            },
+            "is_source_package": false,
+            "name": "jsonfile",
+            "source": "npm",
+            "version": "6.1.0",
+            "vulnerabilities": []
+        },
+        "6.2.0": {
+            "dependencies": {
+                "npm:universalify": "^2.0.0"
+            },
+            "is_source_package": false,
+            "name": "jsonfile",
+            "source": "npm",
+            "version": "6.2.0",
+            "vulnerabilities": []
+        },
+        "6.2.1": {
+            "dependencies": {
+                "npm:universalify": "^2.0.0"
+            },
+            "is_source_package": false,
+            "name": "jsonfile",
+            "source": "npm",
+            "version": "6.2.1",
+            "vulnerabilities": []
+        }
+    },
+    "npm:node-persist": {
+        "0.0.12": {
+            "dependencies": {
+                "npm:mkdirp": "~0.5.1",
+                "npm:q": "~1.1.1"
+            },
+            "is_source_package": false,
+            "name": "node-persist",
+            "source": "npm",
+            "version": "0.0.12",
+            "vulnerabilities": []
+        }
+    },
+    "npm:qrcode-terminal": {
+        "0.12.0": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "qrcode-terminal",
+            "source": "npm",
+            "version": "0.12.0",
+            "vulnerabilities": []
+        }
+    },
+    "npm:semver": {
+        "7.8.5": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "semver",
+            "source": "npm",
+            "version": "7.8.5",
+            "vulnerabilities": []
+        }
+    },
+    "npm:source-map": {
+        "0.6.0": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "source-map",
+            "source": "npm",
+            "version": "0.6.0",
+            "vulnerabilities": []
+        },
+        "0.6.1": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "source-map",
+            "source": "npm",
+            "version": "0.6.1",
+            "vulnerabilities": []
+        }
+    },
+    "npm:source-map-support": {
+        "0.5.21": {
+            "dependencies": {
+                "npm:buffer-from": "^1.0.0",
+                "npm:source-map": "^0.6.0"
+            },
+            "is_source_package": false,
+            "name": "source-map-support",
+            "source": "npm",
+            "version": "0.5.21",
+            "vulnerabilities": []
+        }
+    },
+    "npm:tslib": {
+        "2.8.1": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "tslib",
+            "source": "npm",
+            "version": "2.8.1",
+            "vulnerabilities": []
+        }
+    },
+    "npm:tweetnacl": {
+        "1.0.3": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "tweetnacl",
+            "source": "npm",
+            "version": "1.0.3",
+            "vulnerabilities": []
+        }
+    },
+    "npm:universalify": {
+        "2.0.0": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "universalify",
+            "source": "npm",
+            "version": "2.0.0",
+            "vulnerabilities": []
+        },
+        "2.0.1": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "universalify",
+            "source": "npm",
+            "version": "2.0.1",
+            "vulnerabilities": []
+        }
+    }
+}

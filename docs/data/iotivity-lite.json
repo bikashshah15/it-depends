@@ -1,0 +1,12 @@
+{
+    "cmake:iotivity-lite-apps": {
+        "0.0.0": {
+            "dependencies": {},
+            "is_source_package": true,
+            "name": "iotivity-lite-apps",
+            "source": "cmake",
+            "version": "0.0.0",
+            "vulnerabilities": []
+        }
+    }
+}

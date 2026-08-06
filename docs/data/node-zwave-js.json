@@ -1,0 +1,12 @@
+{
+    "npm:@zwave-js/repo": {
+        "15.26.0": {
+            "dependencies": {},
+            "is_source_package": true,
+            "name": "@zwave-js/repo",
+            "source": "npm",
+            "version": "15.26.0",
+            "vulnerabilities": []
+        }
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "cmake:": {
+        "0.0.0": {
+            "dependencies": {},
+            "is_source_package": true,
+            "name": "",
+            "source": "cmake",
+            "version": "0.0.0",
+            "vulnerabilities": []
+        }
+    }
+}

@@ -1,0 +1,78 @@
+<html>
+<head>
+<title>It-Depends | Dependency Graph for pip:homeassistant</title>
+<style type="text/css">
+mynetwork {
+    width: 100%;
+    height: 100%;
+    border: 1px solid lightgray;
+}
+</style>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+<center>
+<h1>Dependency Graph for pip:homeassistant</h1>
+</center>
+</head>
+
+
+<body>
+<div id = "mynetwork"></div>
+
+<script type="text/javascript">
+
+// initialize global variables.
+var edges;
+var nodes;
+var network;
+var container;
+var options, data;
+
+
+// This method is responsible for drawing the graph, returns the drawn network
+function drawGraph() {
+    var container = document.getElementById('mynetwork');
+
+    // parsing and collecting nodes and edges from the python
+    nodes = new vis.DataSet([{'id': 0, 'label': 'pip:acme', 'level': 2}, {'id': 1, 'label': 'pip:aiodns', 'level': 1}, {'id': 2, 'label': 'pip:aiogithubapi', 'level': 1}, {'id': 3, 'label': 'pip:aiohappyeyeballs', 'color': 'red', 'level': 2}, {'id': 4, 'label': 'pip:aiohttp', 'level': 1}, {'id': 5, 'label': 'pip:aiohttp-asyncmdnsresolver', 'level': 1}, {'id': 6, 'label': 'pip:aiohttp-cors', 'level': 1}, {'id': 7, 'label': 'pip:aiohttp-fast-zlib', 'level': 1}, {'id': 8, 'label': 'pip:aiosignal', 'level': 2}, {'id': 9, 'label': 'pip:aiozoneinfo', 'level': 1}, {'id': 10, 'label': 'pip:annotatedyaml', 'level': 1}, {'id': 11, 'label': 'pip:anyio', 'level': 2}, {'id': 12, 'label': 'pip:astral', 'level': 1}, {'id': 13, 'label': 'pip:async-interrupt', 'level': 1}, {'id': 14, 'label': 'pip:atomicwrites-homeassistant', 'level': 1}, {'id': 15, 'label': 'pip:attrs', 'level': 1}, {'id': 16, 'label': 'pip:audioop-lts', 'level': 1}, {'id': 17, 'label': 'pip:awesomeversion', 'level': 1}, {'id': 18, 'label': 'pip:backoff', 'color': 'red', 'level': 2}, {'id': 19, 'label': 'pip:bcrypt', 'color': 'red', 'level': 1}, {'id': 20, 'label': 'pip:certifi', 'level': 1}, {'id': 21, 'label': 'pip:cffi', 'level': 2}, {'id': 22, 'label': 'pip:charset-normalizer', 'level': 2}, {'id': 23, 'label': 'pip:ciso8601', 'level': 1}, {'id': 24, 'label': 'pip:cronsim', 'level': 1}, {'id': 25, 'label': 'pip:cryptography', 'level': 1}, {'id': 26, 'label': 'pip:fnv-hash-fast', 'level': 1}, {'id': 27, 'label': 'pip:fnvhash', 'level': 2}, {'id': 28, 'label': 'pip:frozenlist', 'level': 2}, {'id': 29, 'label': 'pip:grpcio', 'level': 2}, {'id': 30, 'label': 'pip:habluetooth', 'level': 2}, {'id': 31, 'label': 'pip:hass-nabucasa', 'level': 1}, {'id': 32, 'label': 'pip:home-assistant-bluetooth', 'level': 1}, {'id': 33, 'label': 'pip:homeassistant', 'shape': 'square', 'color': 'red', 'borderWidth': 4, 'level': 0}, {'id': 34, 'label': 'pip:httpcore', 'color': 'red', 'level': 2}, {'id': 35, 'label': 'pip:httpx', 'color': 'red', 'level': 1}, {'id': 36, 'label': 'pip:icmplib', 'level': 2}, {'id': 37, 'label': 'pip:idna', 'level': 2}, {'id': 38, 'label': 'pip:ifaddr', 'level': 1}, {'id': 39, 'label': 'pip:jinja2', 'color': 'red', 'level': 1}, {'id': 40, 'label': 'pip:josepy', 'level': 2}, {'id': 41, 'label': 'pip:lru-dict', 'level': 1}, {'id': 42, 'label': 'pip:markupsafe', 'level': 2}, {'id': 43, 'label': 'pip:mashumaro', 'level': 2}, {'id': 44, 'label': 'pip:multidict', 'level': 2}, {'id': 45, 'label': 'pip:orjson', 'level': 1}, {'id': 46, 'label': 'pip:packaging', 'level': 1}, {'id': 47, 'label': 'pip:pillow', 'color': 'red', 'level': 1}, {'id': 48, 'label': 'pip:propcache', 'level': 1}, {'id': 49, 'label': 'pip:psutil', 'color': 'red', 'level': 2}, {'id': 50, 'label': 'pip:psutil-home-assistant', 'level': 1}, {'id': 51, 'label': 'pip:pycares', 'color': 'red', 'level': 2}, {'id': 52, 'label': 'pip:pycognito', 'level': 2}, {'id': 53, 'label': 'pip:pyjwt', 'level': 1}, {'id': 54, 'label': 'pip:pynacl', 'color': 'red', 'level': 2}, {'id': 55, 'label': 'pip:pyopenssl', 'color': 'red', 'level': 1}, {'id': 56, 'label': 'pip:python-slugify', 'level': 1}, {'id': 57, 'label': 'pip:pyyaml', 'level': 1}, {'id': 58, 'label': 'pip:requests', 'level': 1}, {'id': 59, 'label': 'pip:securetar', 'level': 1}, {'id': 60, 'label': 'pip:sentence-stream', 'level': 2}, {'id': 61, 'label': 'pip:snitun', 'level': 2}, {'id': 62, 'label': 'pip:sqlalchemy', 'color': 'red', 'level': 1}, {'id': 63, 'label': 'pip:standard-aifc', 'level': 1}, {'id': 64, 'label': 'pip:standard-chunk', 'level': 2}, {'id': 65, 'label': 'pip:standard-telnetlib', 'level': 1}, {'id': 66, 'label': 'pip:text-unidecode', 'level': 2}, {'id': 67, 'label': 'pip:typing-extensions', 'level': 1}, {'id': 68, 'label': 'pip:tzdata', 'color': 'red', 'level': 2}, {'id': 69, 'label': 'pip:ulid-transform', 'level': 1}, {'id': 70, 'label': 'pip:urllib3', 'level': 1}, {'id': 71, 'label': 'pip:uv', 'level': 1}, {'id': 72, 'label': 'pip:voluptuous', 'level': 1}, {'id': 73, 'label': 'pip:voluptuous-openapi', 'level': 1}, {'id': 74, 'label': 'pip:voluptuous-serialize', 'level': 1}, {'id': 75, 'label': 'pip:webrtc-models', 'level': 1}, {'id': 76, 'label': 'pip:yarl', 'level': 1}, {'id': 77, 'label': 'pip:zeroconf', 'level': 1}]);
+    edges = new vis.DataSet([{'from': 0, 'to': 40, 'shape': 'dot'}, {'from': 0, 'to': 55, 'shape': 'dot'}, {'from': 0, 'to': 58, 'shape': 'dot'}, {'from': 0, 'to': 25, 'shape': 'dot'}, {'from': 1, 'to': 51, 'shape': 'dot'}, {'from': 2, 'to': 4, 'shape': 'dot'}, {'from': 2, 'to': 18, 'shape': 'dot'}, {'from': 4, 'to': 3, 'shape': 'dot'}, {'from': 4, 'to': 15, 'shape': 'dot'}, {'from': 4, 'to': 44, 'shape': 'dot'}, {'from': 4, 'to': 76, 'shape': 'dot'}, {'from': 4, 'to': 8, 'shape': 'dot'}, {'from': 4, 'to': 48, 'shape': 'dot'}, {'from': 4, 'to': 28, 'shape': 'dot'}, {'from': 5, 'to': 1, 'shape': 'dot'}, {'from': 5, 'to': 4, 'shape': 'dot'}, {'from': 5, 'to': 77, 'shape': 'dot'}, {'from': 6, 'to': 4, 'shape': 'dot'}, {'from': 7, 'to': 4, 'shape': 'dot'}, {'from': 8, 'to': 28, 'shape': 'dot'}, {'from': 9, 'to': 68, 'shape': 'dot'}, {'from': 10, 'to': 57, 'shape': 'dot'}, {'from': 10, 'to': 48, 'shape': 'dot'}, {'from': 10, 'to': 72, 'shape': 'dot'}, {'from': 11, 'to': 37, 'shape': 'dot'}, {'from': 25, 'to': 21, 'shape': 'dot'}, {'from': 26, 'to': 27, 'shape': 'dot'}, {'from': 29, 'to': 67, 'shape': 'dot'}, {'from': 30, 'to': 13, 'shape': 'dot'}, {'from': 31, 'to': 25, 'shape': 'dot'}, {'from': 31, 'to': 72, 'shape': 'dot'}, {'from': 31, 'to': 40, 'shape': 'dot'}, {'from': 31, 'to': 53, 'shape': 'dot'}, {'from': 31, 'to': 15, 'shape': 'dot'}, {'from': 31, 'to': 75, 'shape': 'dot'}, {'from': 31, 'to': 76, 'shape': 'dot'}, {'from': 31, 'to': 52, 'shape': 'dot'}, {'from': 31, 'to': 23, 'shape': 'dot'}, {'from': 31, 'to': 4, 'shape': 'dot'}, {'from': 31, 'to': 14, 'shape': 'dot'}, {'from': 31, 'to': 36, 'shape': 'dot'}, {'from': 31, 'to': 60, 'shape': 'dot'}, {'from': 31, 'to': 61, 'shape': 'dot'}, {'from': 31, 'to': 29, 'shape': 'dot'}, {'from': 31, 'to': 0, 'shape': 'dot'}, {'from': 31, 'to': 58, 'shape': 'dot'}, {'from': 32, 'to': 30, 'shape': 'dot'}, {'from': 33, 'to': 53, 'shape': 'dot'}, {'from': 33, 'to': 25, 'shape': 'dot'}, {'from': 33, 'to': 76, 'shape': 'dot'}, {'from': 33, 'to': 70, 'shape': 'dot'}, {'from': 33, 'to': 77, 'shape': 'dot'}, {'from': 33, 'to': 1, 'shape': 'dot'}, {'from': 33, 'to': 31, 'shape': 'dot'}, {'from': 33, 'to': 69, 'shape': 'dot'}, {'from': 33, 'to': 38, 'shape': 'dot'}, {'from': 33, 'to': 10, 'shape': 'dot'}, {'from': 33, 'to': 47, 'shape': 'dot'}, {'from': 33, 'to': 62, 'shape': 'dot'}, {'from': 33, 'to': 20, 'shape': 'dot'}, {'from': 33, 'to': 13, 'shape': 'dot'}, {'from': 33, 'to': 65, 'shape': 'dot'}, {'from': 33, 'to': 45, 'shape': 'dot'}, {'from': 33, 'to': 7, 'shape': 'dot'}, {'from': 33, 'to': 9, 'shape': 'dot'}, {'from': 33, 'to': 14, 'shape': 'dot'}, {'from': 33, 'to': 58, 'shape': 'dot'}, {'from': 33, 'to': 50, 'shape': 'dot'}, {'from': 33, 'to': 56, 'shape': 'dot'}, {'from': 33, 'to': 16, 'shape': 'dot'}, {'from': 33, 'to': 48, 'shape': 'dot'}, {'from': 33, 'to': 55, 'shape': 'dot'}, {'from': 33, 'to': 19, 'shape': 'dot'}, {'from': 33, 'to': 57, 'shape': 'dot'}, {'from': 33, 'to': 6, 'shape': 'dot'}, {'from': 33, 'to': 67, 'shape': 'dot'}, {'from': 33, 'to': 2, 'shape': 'dot'}, {'from': 33, 'to': 5, 'shape': 'dot'}, {'from': 33, 'to': 26, 'shape': 'dot'}, {'from': 33, 'to': 63, 'shape': 'dot'}, {'from': 33, 'to': 15, 'shape': 'dot'}, {'from': 33, 'to': 41, 'shape': 'dot'}, {'from': 33, 'to': 59, 'shape': 'dot'}, {'from': 33, 'to': 74, 'shape': 'dot'}, {'from': 33, 'to': 23, 'shape': 'dot'}, {'from': 33, 'to': 72, 'shape': 'dot'}, {'from': 33, 'to': 75, 'shape': 'dot'}, {'from': 33, 'to': 17, 'shape': 'dot'}, {'from': 33, 'to': 71, 'shape': 'dot'}, {'from': 33, 'to': 4, 'shape': 'dot'}, {'from': 33, 'to': 12, 'shape': 'dot'}, {'from': 33, 'to': 24, 'shape': 'dot'}, {'from': 33, 'to': 35, 'shape': 'dot'}, {'from': 33, 'to': 73, 'shape': 'dot'}, {'from': 33, 'to': 39, 'shape': 'dot'}, {'from': 33, 'to': 46, 'shape': 'dot'}, {'from': 33, 'to': 32, 'shape': 'dot'}, {'from': 34, 'to': 20, 'shape': 'dot'}, {'from': 35, 'to': 20, 'shape': 'dot'}, {'from': 35, 'to': 11, 'shape': 'dot'}, {'from': 35, 'to': 34, 'shape': 'dot'}, {'from': 35, 'to': 37, 'shape': 'dot'}, {'from': 39, 'to': 42, 'shape': 'dot'}, {'from': 40, 'to': 25, 'shape': 'dot'}, {'from': 43, 'to': 67, 'shape': 'dot'}, {'from': 50, 'to': 49, 'shape': 'dot'}, {'from': 51, 'to': 21, 'shape': 'dot'}, {'from': 52, 'to': 58, 'shape': 'dot'}, {'from': 52, 'to': 53, 'shape': 'dot'}, {'from': 54, 'to': 21, 'shape': 'dot'}, {'from': 55, 'to': 25, 'shape': 'dot'}, {'from': 56, 'to': 66, 'shape': 'dot'}, {'from': 58, 'to': 20, 'shape': 'dot'}, {'from': 58, 'to': 22, 'shape': 'dot'}, {'from': 58, 'to': 70, 'shape': 'dot'}, {'from': 58, 'to': 37, 'shape': 'dot'}, {'from': 59, 'to': 54, 'shape': 'dot'}, {'from': 59, 'to': 25, 'shape': 'dot'}, {'from': 61, 'to': 4, 'shape': 'dot'}, {'from': 61, 'to': 25, 'shape': 'dot'}, {'from': 62, 'to': 67, 'shape': 'dot'}, {'from': 63, 'to': 16, 'shape': 'dot'}, {'from': 63, 'to': 64, 'shape': 'dot'}, {'from': 73, 'to': 72, 'shape': 'dot'}, {'from': 74, 'to': 72, 'shape': 'dot'}, {'from': 75, 'to': 43, 'shape': 'dot'}, {'from': 75, 'to': 45, 'shape': 'dot'}, {'from': 76, 'to': 44, 'shape': 'dot'}, {'from': 76, 'to': 48, 'shape': 'dot'}, {'from': 76, 'to': 37, 'shape': 'dot'}, {'from': 77, 'to': 38, 'shape': 'dot'}]);
+
+
+    // adding nodes and edges to the graph
+    data = {nodes: nodes, edges: edges};
+
+
+    const options = {
+        manipulation: false,
+        height: "90%",
+        physics: {
+            hierarchicalRepulsion: {
+              nodeDistance: 300,
+            },
+          },
+        edges: {
+            color: {
+                inherit: false
+            },
+            arrows: {
+                to: true,
+            },
+        },
+        layout: {
+            hierarchical: true
+        }
+    };
+
+
+
+    network = new vis.Network(container, data, options);
+    return network;
+
+}
+
+drawGraph();
+
+</script>
+</body>
+</html>

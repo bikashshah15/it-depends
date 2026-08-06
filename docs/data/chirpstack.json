@@ -1,0 +1,53 @@
+{
+    "cargo:hex": {
+        "0.4.3": {
+            "dependencies": {},
+            "is_source_package": false,
+            "name": "hex",
+            "source": "cargo",
+            "version": "0.4.3",
+            "vulnerabilities": []
+        }
+    },
+    "cargo:lrwn_filters": {
+        "4.20.0-test.2": {
+            "dependencies": {
+                "cargo:hex": "^0.4",
+                "cargo:thiserror": "^2.0"
+            },
+            "is_source_package": true,
+            "name": "lrwn_filters",
+            "source": "cargo",
+            "version": "4.20.0-test.2",
+            "vulnerabilities": []
+        }
+    },
+    "cargo:thiserror": {
+        "2.0.19": {
+            "dependencies": {
+                "cargo:thiserror-impl": "=2.0.19"
+            },
+            "is_source_package": false,
+            "name": "thiserror",
+            "source": "cargo",
+            "version": "2.0.19",
+            "vulnerabilities": [
+                "MAL-2025-2582 (GHSA-q76j-982h-2w42)"
+            ]
+        }
+    },
+    "cargo:thiserror-impl": {
+        "2.0.19": {
+            "dependencies": {
+                "cargo:proc-macro2": "^1.0.74",
+                "cargo:quote": "^1.0.35",
+                "cargo:syn": "^3"
+            },
+            "is_source_package": false,
+            "name": "thiserror-impl",
+            "source": "cargo",
+            "version": "2.0.19",
+            "vulnerabilities": []
+        }
+    }
+}

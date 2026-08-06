@@ -1,0 +1,78 @@
+<html>
+<head>
+<title>It-Depends | Dependency Graph for pip:platformio</title>
+<style type="text/css">
+mynetwork {
+    width: 100%;
+    height: 100%;
+    border: 1px solid lightgray;
+}
+</style>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+<center>
+<h1>Dependency Graph for pip:platformio</h1>
+</center>
+</head>
+
+
+<body>
+<div id = "mynetwork"></div>
+
+<script type="text/javascript">
+
+// initialize global variables.
+var edges;
+var nodes;
+var network;
+var container;
+var options, data;
+
+
+// This method is responsible for drawing the graph, returns the drawn network
+function drawGraph() {
+    var container = document.getElementById('mynetwork');
+
+    // parsing and collecting nodes and edges from the python
+    nodes = new vis.DataSet([{'id': 0, 'label': 'pip:ajsonrpc', 'level': 1}, {'id': 1, 'label': 'pip:anyio', 'level': 2}, {'id': 2, 'label': 'pip:bottle', 'level': 1}, {'id': 3, 'label': 'pip:certifi', 'color': 'red', 'level': 2}, {'id': 4, 'label': 'pip:chardet', 'level': 1}, {'id': 5, 'label': 'pip:charset-normalizer', 'level': 2}, {'id': 6, 'label': 'pip:click', 'level': 1}, {'id': 7, 'label': 'pip:colorama', 'level': 1}, {'id': 8, 'label': 'pip:h11', 'level': 2}, {'id': 9, 'label': 'pip:idna', 'color': 'red', 'level': 2}, {'id': 10, 'label': 'pip:marshmallow', 'color': 'red', 'level': 1}, {'id': 11, 'label': 'pip:pip', 'color': 'red', 'level': 1}, {'id': 12, 'label': 'pip:platformio', 'shape': 'square', 'color': 'red', 'borderWidth': 4, 'level': 0}, {'id': 13, 'label': 'pip:pyelftools', 'level': 1}, {'id': 14, 'label': 'pip:pyserial', 'color': 'red', 'level': 1}, {'id': 15, 'label': 'pip:requests', 'color': 'red', 'level': 1}, {'id': 16, 'label': 'pip:semantic-version', 'level': 1}, {'id': 17, 'label': 'pip:starlette', 'color': 'red', 'level': 1}, {'id': 18, 'label': 'pip:tabulate', 'level': 1}, {'id': 19, 'label': 'pip:urllib3', 'color': 'red', 'level': 2}, {'id': 20, 'label': 'pip:uvicorn', 'color': 'red', 'level': 1}, {'id': 21, 'label': 'pip:wsproto', 'level': 1}]);
+    edges = new vis.DataSet([{'from': 1, 'to': 9, 'shape': 'dot'}, {'from': 12, 'to': 11, 'shape': 'dot'}, {'from': 12, 'to': 6, 'shape': 'dot'}, {'from': 12, 'to': 4, 'shape': 'dot'}, {'from': 12, 'to': 17, 'shape': 'dot'}, {'from': 12, 'to': 13, 'shape': 'dot'}, {'from': 12, 'to': 18, 'shape': 'dot'}, {'from': 12, 'to': 20, 'shape': 'dot'}, {'from': 12, 'to': 14, 'shape': 'dot'}, {'from': 12, 'to': 15, 'shape': 'dot'}, {'from': 12, 'to': 10, 'shape': 'dot'}, {'from': 12, 'to': 7, 'shape': 'dot'}, {'from': 12, 'to': 21, 'shape': 'dot'}, {'from': 12, 'to': 2, 'shape': 'dot'}, {'from': 12, 'to': 16, 'shape': 'dot'}, {'from': 12, 'to': 0, 'shape': 'dot'}, {'from': 15, 'to': 19, 'shape': 'dot'}, {'from': 15, 'to': 5, 'shape': 'dot'}, {'from': 15, 'to': 3, 'shape': 'dot'}, {'from': 15, 'to': 9, 'shape': 'dot'}, {'from': 17, 'to': 1, 'shape': 'dot'}, {'from': 20, 'to': 8, 'shape': 'dot'}, {'from': 20, 'to': 6, 'shape': 'dot'}, {'from': 21, 'to': 8, 'shape': 'dot'}]);
+
+
+    // adding nodes and edges to the graph
+    data = {nodes: nodes, edges: edges};
+
+
+    const options = {
+        manipulation: false,
+        height: "90%",
+        physics: {
+            hierarchicalRepulsion: {
+              nodeDistance: 300,
+            },
+          },
+        edges: {
+            color: {
+                inherit: false
+            },
+            arrows: {
+                to: true,
+            },
+        },
+        layout: {
+            hierarchical: true
+        }
+    };
+
+
+
+    network = new vis.Network(container, data, options);
+    return network;
+
+}
+
+drawGraph();
+
+</script>
+</body>
+</html>

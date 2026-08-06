@@ -1,0 +1,78 @@
+<html>
+<head>
+<title>It-Depends | Dependency Graph for pip:thingsboard-gateway</title>
+<style type="text/css">
+mynetwork {
+    width: 100%;
+    height: 100%;
+    border: 1px solid lightgray;
+}
+</style>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+<center>
+<h1>Dependency Graph for pip:thingsboard-gateway</h1>
+</center>
+</head>
+
+
+<body>
+<div id = "mynetwork"></div>
+
+<script type="text/javascript">
+
+// initialize global variables.
+var edges;
+var nodes;
+var network;
+var container;
+var options, data;
+
+
+// This method is responsible for drawing the graph, returns the drawn network
+function drawGraph() {
+    var container = document.getElementById('mynetwork');
+
+    // parsing and collecting nodes and edges from the python
+    nodes = new vis.DataSet([{'id': 0, 'label': 'pip:attrs', 'level': 2}, {'id': 1, 'label': 'pip:cachetools', 'level': 1}, {'id': 2, 'label': 'pip:certifi', 'color': 'red', 'level': 2}, {'id': 3, 'label': 'pip:cffi', 'level': 2}, {'id': 4, 'label': 'pip:charset-normalizer', 'level': 2}, {'id': 5, 'label': 'pip:cryptography', 'level': 1}, {'id': 6, 'label': 'pip:decorator', 'level': 2}, {'id': 7, 'label': 'pip:grpcio', 'color': 'red', 'level': 1}, {'id': 8, 'label': 'pip:idna', 'color': 'red', 'level': 2}, {'id': 9, 'label': 'pip:jsonpath-rw', 'level': 1}, {'id': 10, 'label': 'pip:mmh3', 'level': 1}, {'id': 11, 'label': 'pip:orjson', 'color': 'red', 'level': 1}, {'id': 12, 'label': 'pip:packaging', 'level': 1}, {'id': 13, 'label': 'pip:pip', 'color': 'red', 'level': 1}, {'id': 14, 'label': 'pip:ply', 'color': 'red', 'level': 2}, {'id': 15, 'label': 'pip:protobuf', 'color': 'red', 'level': 1}, {'id': 16, 'label': 'pip:psutil', 'color': 'red', 'level': 1}, {'id': 17, 'label': 'pip:pybase64', 'level': 1}, {'id': 18, 'label': 'pip:pysocks', 'level': 1}, {'id': 19, 'label': 'pip:python-dateutil', 'color': 'red', 'level': 1}, {'id': 20, 'label': 'pip:pyyaml', 'color': 'red', 'level': 1}, {'id': 21, 'label': 'pip:regex', 'color': 'red', 'level': 1}, {'id': 22, 'label': 'pip:requests', 'level': 1}, {'id': 23, 'label': 'pip:service-identity', 'level': 1}, {'id': 24, 'label': 'pip:setuptools', 'color': 'red', 'level': 1}, {'id': 25, 'label': 'pip:simplejson', 'color': 'red', 'level': 1}, {'id': 26, 'label': 'pip:six', 'level': 2}, {'id': 27, 'label': 'pip:tb-mqtt-client', 'level': 1}, {'id': 28, 'label': 'pip:tb-paho-mqtt-client', 'level': 1}, {'id': 29, 'label': 'pip:thingsboard-gateway', 'shape': 'square', 'color': 'red', 'borderWidth': 4, 'level': 0}, {'id': 30, 'label': 'pip:typing-extensions', 'color': 'red', 'level': 2}, {'id': 31, 'label': 'pip:urllib3', 'level': 1}]);
+    edges = new vis.DataSet([{'from': 5, 'to': 3, 'shape': 'dot'}, {'from': 7, 'to': 30, 'shape': 'dot'}, {'from': 9, 'to': 26, 'shape': 'dot'}, {'from': 9, 'to': 14, 'shape': 'dot'}, {'from': 9, 'to': 6, 'shape': 'dot'}, {'from': 19, 'to': 26, 'shape': 'dot'}, {'from': 22, 'to': 31, 'shape': 'dot'}, {'from': 22, 'to': 8, 'shape': 'dot'}, {'from': 22, 'to': 2, 'shape': 'dot'}, {'from': 22, 'to': 4, 'shape': 'dot'}, {'from': 23, 'to': 5, 'shape': 'dot'}, {'from': 23, 'to': 0, 'shape': 'dot'}, {'from': 27, 'to': 28, 'shape': 'dot'}, {'from': 27, 'to': 22, 'shape': 'dot'}, {'from': 27, 'to': 11, 'shape': 'dot'}, {'from': 29, 'to': 18, 'shape': 'dot'}, {'from': 29, 'to': 31, 'shape': 'dot'}, {'from': 29, 'to': 27, 'shape': 'dot'}, {'from': 29, 'to': 19, 'shape': 'dot'}, {'from': 29, 'to': 17, 'shape': 'dot'}, {'from': 29, 'to': 25, 'shape': 'dot'}, {'from': 29, 'to': 9, 'shape': 'dot'}, {'from': 29, 'to': 24, 'shape': 'dot'}, {'from': 29, 'to': 12, 'shape': 'dot'}, {'from': 29, 'to': 11, 'shape': 'dot'}, {'from': 29, 'to': 10, 'shape': 'dot'}, {'from': 29, 'to': 16, 'shape': 'dot'}, {'from': 29, 'to': 13, 'shape': 'dot'}, {'from': 29, 'to': 15, 'shape': 'dot'}, {'from': 29, 'to': 23, 'shape': 'dot'}, {'from': 29, 'to': 22, 'shape': 'dot'}, {'from': 29, 'to': 28, 'shape': 'dot'}, {'from': 29, 'to': 20, 'shape': 'dot'}, {'from': 29, 'to': 7, 'shape': 'dot'}, {'from': 29, 'to': 1, 'shape': 'dot'}, {'from': 29, 'to': 21, 'shape': 'dot'}, {'from': 29, 'to': 5, 'shape': 'dot'}]);
+
+
+    // adding nodes and edges to the graph
+    data = {nodes: nodes, edges: edges};
+
+
+    const options = {
+        manipulation: false,
+        height: "90%",
+        physics: {
+            hierarchicalRepulsion: {
+              nodeDistance: 300,
+            },
+          },
+        edges: {
+            color: {
+                inherit: false
+            },
+            arrows: {
+                to: true,
+            },
+        },
+        layout: {
+            hierarchical: true
+        }
+    };
+
+
+
+    network = new vis.Network(container, data, options);
+    return network;
+
+}
+
+drawGraph();
+
+</script>
+</body>
+</html>
